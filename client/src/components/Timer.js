@@ -17,7 +17,7 @@ class Timer extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     axios
-      .get(`https://glacial-refuge-80009.herokuapp.com/api/tasks/${id}`)
+      .get(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`)
       .then(res =>
         this.setState({
           seconds: res.data.time
@@ -50,7 +50,7 @@ class Timer extends Component {
       time: this.state.seconds
     };
     axios
-      .put(`https://glacial-refuge-80009.herokuapp.com/api/tasks/${id}`, data)
+      .put(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`, data)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     window.location.href = "/dashboard";
