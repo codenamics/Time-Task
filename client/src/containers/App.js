@@ -31,28 +31,23 @@ class App extends Component {
           <div>
             <Switch>
               <Route exact path="/" component={Login} />
-            </Switch>
-            <Switch>
+
               <Route exact path="/dashboard" component={Dashboard} />
-            </Switch>
-            <Switch>
+
               <Route
                 exact
                 path="/register"
                 render={() => <Register authType="register" title="Register" />}
               />
-            </Switch>
-            <Switch>
+
               <Route
                 exact
                 path="/login"
                 render={() => <Login authType="login" title="Login" />}
               />
-            </Switch>
-            <Switch>
+
               <Route exact path="/add" render={() => <AddTask />} />
-            </Switch>
-            <Switch>
+
               <Route exact path="/:id" render={() => <Timer />} />
             </Switch>
             {/* <Switch>
