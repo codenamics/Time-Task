@@ -9,7 +9,7 @@ import {
 
 const host =
   process.env.NODE_ENV === "production" ?
-  "https://vast-everglades-35412.herokuapp.com//api" :
+  "https://vast-everglades-35412.herokuapp.com/api" :
   "http://localhost:4000/api";
 
 
