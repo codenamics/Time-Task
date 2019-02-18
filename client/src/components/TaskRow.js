@@ -8,7 +8,9 @@ class TaskRow extends Component {
     this.props.deleteTask(id);
   };
   onAction = id => {
-    window.location.href = `https://vast-everglades-35412.herokuapp.com/${id}`;
+    this.props.history.push(
+      `https://vast-everglades-35412.herokuapp.com/${id}`
+    );
   };
   render() {
     const { task } = this.props;
