@@ -13,10 +13,10 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-app.use(cors({
-    'origin': '*',
-    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-}));
+// app.use(cors({
+//     'origin': '*',
+//     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+// }));
 
 mongoose.connect(process.env.mongoURI)
     .then(() => console.log('MongoDB Connected'))
@@ -29,7 +29,7 @@ require('./config/passport')(passport)
 app.use('/api/users', users)
 app.use('/api/tasks', tasks)
 
-const port = 4000
+const port = process.env.PORT || 4000
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
