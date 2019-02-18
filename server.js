@@ -7,6 +7,7 @@ const users = require('./routes/api/users')
 const tasks = require('./routes/api/tasks')
 const passport = require('passport')
 const cors = require('cors')
+const path = require('path')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
