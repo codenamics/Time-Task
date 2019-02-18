@@ -15,6 +15,7 @@ class Timer extends Component {
     };
   }
   componentDidMount() {
+    console.log(123);
     const { id } = this.props.match.params;
     axios
       .get(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`)
