@@ -3,7 +3,12 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "../service/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authAction";
 import Timer from "../components/Timer";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  browserHistory
+} from "react-router-dom";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import { Provider } from "react-redux";
@@ -28,29 +33,25 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
-            <Switch>
-              <Route exact path="/" component={Login} />
+          <Switch>
+            <Route exact path="/" component={Login} />
 
-              <Route exact path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard" component={Dashboard} />
 
-              <Route
-                exact
-                path="/register"
-                render={() => <Register authType="register" title="Register" />}
-              />
+            <Route
+              path="/register"
+              render={() => <Register authType="register" title="Register" />}
+            />
 
-              <Route
-                exact
-                path="/login"
-                render={() => <Login authType="login" title="Login" />}
-              />
+            <Route
+              path="/login"
+              render={() => <Login authType="login" title="Login" />}
+            />
 
-              <Route exact path="/add" render={() => <AddTask />} />
+            <Route path="/add" render={() => <AddTask />} />
 
-              <Route exact path="/:id" render={() => <Timer />} />
-            </Switch>
-          </div>
+            <Route path="/:id" render={() => <Timer />} />
+          </Switch>
         </Router>
       </Provider>
     );
