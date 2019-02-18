@@ -28,70 +28,29 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <React.Fragment>
+          <div>
             <Switch>
               <Route exact path="/" component={Login} />
-            </Switch>
-            <Switch>
+
               <Route exact path="/dashboard" component={Dashboard} />
-            </Switch>
-            <Switch>
+
               <Route
                 exact
                 path="/register"
                 render={() => <Register authType="register" title="Register" />}
               />
-            </Switch>
-            <Switch>
-              {" "}
+
               <Route
                 exact
                 path="/login"
                 render={() => <Login authType="login" title="Login" />}
               />
-            </Switch>
 
-            <Switch>
               <Route exact path="/add" render={() => <AddTask />} />
-            </Switch>
-            <Switch>
+
               <Route exact path="/:id" render={() => <Timer />} />
             </Switch>
-
-            {/* <Switch>
-                                                      <Route
-                                                        exact
-                                                        path="/reset"
-                                                        render={() => <Auth authType="reset" title="Reset Password" />}
-                                                      />
-                                                    </Switch>
-                                                    <Switch>
-                                                      <Route
-                                                        exact
-                                                        path="/reset/:token"
-                                                        render={() => (
-                                                          <Auth authType="reset" title="Set New Password" />
-                                                        )}
-                                                      />
-                                                    </Switch> */}
-            {/* <Route
-                                                                exact
-                                                                path="/login"
-                                                                render={() => (
-                                                                  <AuthPage authType="login" isAuthenticated={auth.isAuthenticated} />
-                                                                )}
-                                                              />
-                                                              <Route
-                                                                exact
-                                                                path="/register"
-                                                                render={() => (
-                                                                  <AuthPage
-                                                                    authType="register"
-                                                                    isAuthenticated={auth.isAuthenticated}
-                                                                  />
-                                                                )}
-                                                              /> */}
-          </React.Fragment>
+          </div>
         </Router>
       </Provider>
     );
