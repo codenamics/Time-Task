@@ -30,7 +30,7 @@ class App extends Component {
         <Router>
           <div>
             <Switch>
-              <Route exact path="/" component={Timer} />
+              <Route exact path="/" component={Login} />
             </Switch>
             <Switch>
               <Route exact path="/dashboard" component={Dashboard} />
@@ -56,38 +56,38 @@ class App extends Component {
               <Route exact path="/:id" render={() => <Timer />} />
             </Switch>
             {/* <Switch>
-                                              <Route
-                                                exact
-                                                path="/reset"
-                                                render={() => <Auth authType="reset" title="Reset Password" />}
-                                              />
-                                            </Switch>
-                                            <Switch>
-                                              <Route
-                                                exact
-                                                path="/reset/:token"
-                                                render={() => (
-                                                  <Auth authType="reset" title="Set New Password" />
-                                                )}
-                                              />
-                                            </Switch> */}
-            {/* <Route
-                                                        exact
-                                                        path="/login"
-                                                        render={() => (
-                                                          <AuthPage authType="login" isAuthenticated={auth.isAuthenticated} />
-                                                        )}
-                                                      />
                                                       <Route
                                                         exact
-                                                        path="/register"
+                                                        path="/reset"
+                                                        render={() => <Auth authType="reset" title="Reset Password" />}
+                                                      />
+                                                    </Switch>
+                                                    <Switch>
+                                                      <Route
+                                                        exact
+                                                        path="/reset/:token"
                                                         render={() => (
-                                                          <AuthPage
-                                                            authType="register"
-                                                            isAuthenticated={auth.isAuthenticated}
-                                                          />
+                                                          <Auth authType="reset" title="Set New Password" />
                                                         )}
-                                                      /> */}
+                                                      />
+                                                    </Switch> */}
+            {/* <Route
+                                                                exact
+                                                                path="/login"
+                                                                render={() => (
+                                                                  <AuthPage authType="login" isAuthenticated={auth.isAuthenticated} />
+                                                                )}
+                                                              />
+                                                              <Route
+                                                                exact
+                                                                path="/register"
+                                                                render={() => (
+                                                                  <AuthPage
+                                                                    authType="register"
+                                                                    isAuthenticated={auth.isAuthenticated}
+                                                                  />
+                                                                )}
+                                                              /> */}
           </div>
         </Router>
       </Provider>
