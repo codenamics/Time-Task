@@ -27,7 +27,7 @@ class Timer extends Component {
       .catch(err => console.log(err));
   }
   goBack = () => {
-    window.location.href = "/dashboard";
+    this.props.history.push("/dashboard");
   };
   handleTimerStart = e => {
     e.preventDefault();
@@ -54,7 +54,7 @@ class Timer extends Component {
       .put(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`, data)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
-    window.location.href = "/dashboard";
+    this.props.history.push("/dashboard");
   };
   handelResetTimer = () => {
     this.setState({
