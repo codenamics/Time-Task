@@ -1,0 +1,7 @@
+export const REGISTER_USER = 'REGISTER_USER'
+export const GET_ERRORS = 'GET_ERRORS'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const FETCH_ALL_TASKS = 'FETCH_ALL_TASKS'
+export const TASKS_LOADING = 'TASKS_LOADING'
+export const DELETE_TASK = 'DELETE_TASK'
+export const ADD_TASK = 'ADD_TASK'
