@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const users = require('./routes/api/users')
 const tasks = require('./routes/api/tasks')
 const passport = require('passport')
-const cors = require('cors')
+
 const path = require('path')
 
 app.use(bodyParser.json())
@@ -14,10 +14,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-// app.use(cors({
-//     'origin': '*',
-//     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-// }));
+
 
 mongoose.connect(process.env.mongoURI)
     .then(() => console.log('MongoDB Connected'))
