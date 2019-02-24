@@ -18,7 +18,7 @@ class Timer extends Component {
     console.log(123);
     const { id } = this.props.match.params;
     axios
-      .get(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`)
+      .get(`http://localhost:4000/api/tasks/${id}`)
       .then(res =>
         this.setState({
           seconds: res.data.time
@@ -51,7 +51,7 @@ class Timer extends Component {
       time: this.state.seconds
     };
     axios
-      .put(`https://vast-everglades-35412.herokuapp.com/api/tasks/${id}`, data)
+      .put(`http://localhost:4000/api/tasks/${id}`, data)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     this.props.history.push("/dashboard");

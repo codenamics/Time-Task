@@ -9,10 +9,7 @@ import {
   ADD_TASK
 } from "./types";
 
-const host =
-  process.env.NODE_ENV === "production" ?
-  "https://vast-everglades-35412.herokuapp.com/api" :
-  "http://localhost:4000/api";
+const host = "http://localhost:4000/api";
 
 
 export const addTasks = (taskData) => dispatch => {
@@ -37,7 +34,7 @@ export const addTasks = (taskData) => dispatch => {
 
 
 
-export const fetchAllTasks = () => dispatch => {
+export const fetchAllMonthAndTasks = () => dispatch => {
   dispatch(setProfileLoading())
   axios
     .get(`${host}/tasks`)

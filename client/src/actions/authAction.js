@@ -7,10 +7,7 @@ import {
   SET_CURRENT_USER
 } from "./types";
 
-const host =
-  process.env.NODE_ENV === "production" ?
-  "https://vast-everglades-35412.herokuapp.com/api" :
-  "http://localhost:4000/api";
+const host = "http://localhost:4000/api";
 
 
 export const registerUser = (userData, history) => dispatch => {

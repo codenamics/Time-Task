@@ -12,38 +12,30 @@ class TaskRow extends Component {
   };
   render() {
     const { task } = this.props;
-    let time = TimeFormat.fromS(task.time, "hh:mm:ss");
-    return (
-      <div className="table-row">
-        <span> {task.title} </span> <span> {task.description} </span>
-        <span className="text-center "> {time} </span>{" "}
-        {task.isHigh === "false" ? (
-          <span className="text-center "> Tak </span>
-        ) : (
-          <span className="text-center ">Nie</span>
-        )}{" "}
-        <i
-          class="far fa-eye text-center "
-          onClick={this.onAction.bind(this, task._id)}
-        />
-        <i class="fas fa-pencil-alt text-center " />
-        <i
-          class="fas fa-times text-center "
-          type="button"
-          onClick={this.onDeleteClick.bind(this, task._id)}
-        />
-      </div>
-    );
+
+    let taskItems;
+    if (task.tasks === null) {
+      taskItems = <p> Loading </p>;
+    } else {
+      if (task.tasks.length > 0) {
+        taskItems = task.tasks.map(task => (
+          <div className="table-row">
+            <span> {task.title} </span> <span> {task.description} </span>
+            <span className="text-center ">
+              {" "}
+              {TimeFormat.fromS(task.time, "hh:mm:ss")}{" "}
+            </span>
+          </div>
+        ));
+      } else {
+        taskItems = <h4> You have no tasks </h4>;
+      }
+
+      console.log(task.tasks);
+
+      return <React.Fragment>{taskItems}</React.Fragment>;
+    }
   }
 }
 
-const mapStateToProps = state => ({
-  tasks: state.tasks
-});
-
-export default connect(
-  mapStateToProps,
-  {
-    deleteTask
-  }
-)(withRouter(TaskRow));
+export default TaskRow;

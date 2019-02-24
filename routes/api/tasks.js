@@ -2,32 +2,55 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 
-const Tasks = require('../../models/Tasks')
+const Month = require('../../models/Tasks')
 
 
-//Create new task
+//Create new month
 
 router.post('/', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     const {
-        title,
-        description,
-        time
+        name,
+        year
     } = req.body
-    const newTask = new Tasks({
-        title,
-        description,
-        time,
+    console.log(req.body)
+    const newMonth = new Month({
+        name,
+        year,
         user: req.user.id
     })
-    newTask.save()
+    newMonth.save()
         .then(post => {
             res.json(post)
-        }).catch(err => res.status(404).json({
-            notasks: "No tasks found"
-        }))
+        }).catch(err => console.log(err))
 })
+
+
+router.post(
+    '/addTask',
+    passport.authenticate('jwt', {
+        session: false
+    }),
+    (req, res) => {
+        Month.findOne({
+            user: req.user.id,
+            _id: req.body.id
+        }).then(month => {
+            const newMonth = {
+                title: req.body.title,
+                description: req.body.description,
+                time: req.body.time,
+            };
+
+            month.tasks.unshift(newMonth);
+
+            month.save().then(month => res.json(month));
+        });
+    }
+);
+
+
 
 //Get all tasks by admin user
 
@@ -50,15 +73,15 @@ router.get('/all', (req, res) => {
 router.get('/', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
-    Tasks.find({
+    Month.find({
             user: req.user.id
         }).sort({
             date: -1
         })
-        .then(tasks => {
-            res.json(tasks)
+        .then(month => {
+            res.json(month)
         }).catch(err => res.status(404).json({
-            notasks: "No tasks found"
+            notasks: "No month found"
         }))
 })
 
