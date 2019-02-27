@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-
+const validateMonthInput = require('../../validation/month')
 const Month = require('../../models/Tasks')
 
 
@@ -10,6 +10,14 @@ const Month = require('../../models/Tasks')
 router.post('/', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
+    const {
+        errors,
+        isValid
+    } = validateMonthInput(req.body)
+
+    if (!isValid) {
+        return res.status(400).json(errors)
+    }
     const {
         name,
         year

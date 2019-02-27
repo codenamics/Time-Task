@@ -1,10 +1,10 @@
 import {
-
     FETCH_ALL_MONTHS_AND_TASKS,
     ADD_TASK,
-    ADD_MONTH
+    ADD_MONTH,
+    DELETE_MONTH
 } from '../actions/types.js'
-import isEmpty from '../validation/is-empty'
+
 
 const initialState = {
     loading: false,
@@ -44,11 +44,11 @@ export default function (state = initialState, action) {
             //         loading: false
 
             //     }
-            // case DELETE_TASK:
-            //     return {
-            //         ...state,
-            //         tasks: state.tasks.filter(task => task._id !== action.payload)
-            //     }
+        case DELETE_MONTH:
+            return {
+                ...state,
+                month: state.month.filter(month => month._id !== action.payload)
+            }
         default:
             return state
 
