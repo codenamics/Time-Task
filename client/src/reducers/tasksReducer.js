@@ -1,13 +1,15 @@
 import {
     ADD_TASK,
-    FETCH_ALL_TASKS,
+
     TASKS_LOADING,
-    DELETE_TASK
+    DELETE_TASK,
+
 } from '../actions/types.js'
-import isEmpty from '../validation/is-empty'
+
 
 const initialState = {
     loading: false,
+
     tasks: [],
     task: {}
 
@@ -15,6 +17,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
+
         case ADD_TASK:
             return {
                 ...state,
@@ -25,13 +28,7 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             }
-        case FETCH_ALL_TASKS:
-            return {
-                ...state,
-                tasks: action.payload,
-                loading: false
 
-            }
         case DELETE_TASK:
             return {
                 ...state,

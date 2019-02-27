@@ -50,7 +50,7 @@ class Login extends Component {
 
   render() {
     const { email, password, errors } = this.state;
-
+    const { title } = this.props;
     return (
       <div className="auth">
         <div className="auth__left">
@@ -83,7 +83,7 @@ class Login extends Component {
                   className="form__log-btn"
                   onClick={this.handleSubmit}
                 >
-                  {this.props.title}
+                  {title}
                 </button>
               </div>
             </form>
@@ -94,7 +94,7 @@ class Login extends Component {
         </div>
         <div className="auth__right">
           <div className="auth__right-head">
-            <h1> {this.props.title} </h1>
+            <h1> {title} </h1>
           </div>
         </div>
       </div>

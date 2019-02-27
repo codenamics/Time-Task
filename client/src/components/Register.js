@@ -46,29 +46,27 @@ class Register extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { user } = this.props;
-    const { errors } = this.props.errors;
+    const { title } = this.props;
+
     return (
       <div className="auth">
         <div className="auth__left">
           <div className="auth__left-logo">
-            {" "}
-            {user ? user.email : null}{" "}
             <h2>
-              Time / <span className="check"> Task </span>{" "}
-            </h2>{" "}
-          </div>{" "}
+              Time / <span className="check"> Task </span>
+            </h2>
+          </div>
           <div className="auth__left-form">
             <form className="form" onSubmit={this.onSubmit}>
-              <label> Email </label>{" "}
+              <label> Email </label>
               <InputGroup
                 placeholder="Email"
                 name="email"
                 type="email"
                 value={email}
                 onChange={this.onChange}
-              />{" "}
-              <label> Password </label>{" "}
+              />
+              <label> Password </label>
               <InputGroup
                 type="password"
                 placeholder="Password"
@@ -82,20 +80,20 @@ class Register extends Component {
                   className="form__log-btn"
                   onClick={this.handleSubmit}
                 >
-                  {this.props.title}{" "}
-                </button>{" "}
-              </div>{" "}
-            </form>{" "}
-          </div>{" "}
+                  {title}
+                </button>
+              </div>
+            </form>
+          </div>
           <div className="disclaimer">
-            <p> 1.0 2019 </p>{" "}
-          </div>{" "}
-        </div>{" "}
+            <p> 1.0 2019 </p>
+          </div>
+        </div>
         <div className="auth__right">
           <div className="auth__right-head">
-            <h1> {this.props.title} </h1>{" "}
-          </div>{" "}
-        </div>{" "}
+            <h1> {title} </h1>
+          </div>
+        </div>
       </div>
     );
   }

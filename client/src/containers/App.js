@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "../service/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authAction";
 import Timer from "../components/Timer";
+import AddMonth from "../components/AddMonth";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,6 +17,7 @@ import store from "../store";
 import Dashboard from "../components/Dashboard";
 import AddTask from "../components/AddTask";
 import Action from "../components/Action";
+import Landing from "../components/Landing";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -34,22 +36,18 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Login} />
-
+            <Route exact path="/" component={Landing} />
             <Route path="/dashboard" component={Dashboard} />
-
+            <Route path="/addMonth" component={AddMonth} />
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}
             />
-
             <Route
               path="/login"
               render={() => <Login authType="login" title="Login" />}
             />
-
             <Route path="/add" render={() => <AddTask />} />
-
             <Route path="/:id" render={() => <Timer />} />
           </Switch>
         </Router>

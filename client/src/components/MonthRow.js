@@ -9,22 +9,20 @@ class MonthRow extends Component {
   //     this.props.history.push(`/${id}`);
   //   };
   render() {
-    const { task } = this.props;
-    console.log(task);
-    // let time = TimeFormat.fromS(task.time, "hh:mm:ss");
+    const { monthItem } = this.props;
+
     return (
       <div className="main__one">
         <div className="table-flex">
           <div className="main__top-left">
-            <span className="main__top-left--1 check"> {task.name} </span>
+            <span className="main__top-left--1 check"> {monthItem.name} </span>
             <span className="main__top-left--2"> Check your tasks </span>
           </div>
           <Link to="/add">
             <button className="form__log-btn"> Add new Task </button>
           </Link>
         </div>
-
-        <TaskRow key={task.id} task={task} />
+        <TaskRow key={monthItem._id} task={monthItem} />
       </div>
     );
   }

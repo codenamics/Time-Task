@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { addTasks } from "../actions/tasksAction";
+// import { addTasks } from "../actions/tasksAction";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 class AddTask extends Component {
@@ -77,6 +77,6 @@ class AddTask extends Component {
 export default connect(
   null,
   {
-    addTasks
+    // addTasks
   }
 )(withRouter(AddTask));

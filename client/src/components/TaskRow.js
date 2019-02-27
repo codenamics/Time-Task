@@ -12,7 +12,7 @@ class TaskRow extends Component {
   };
   render() {
     const { task } = this.props;
-
+    console.log(task);
     let taskItems;
     if (task.tasks === null) {
       taskItems = <p> Loading </p>;
@@ -24,7 +24,7 @@ class TaskRow extends Component {
             <span className="text-center ">
               {" "}
               {TimeFormat.fromS(task.time, "hh:mm:ss")}{" "}
-            </span>
+            </span>{" "}
           </div>
         ));
       } else {
@@ -33,7 +33,7 @@ class TaskRow extends Component {
 
       console.log(task.tasks);
 
-      return <React.Fragment>{taskItems}</React.Fragment>;
+      return <React.Fragment> {taskItems} </React.Fragment>;
     }
   }
 }
