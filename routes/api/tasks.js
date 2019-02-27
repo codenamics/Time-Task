@@ -33,9 +33,11 @@ router.post(
         session: false
     }),
     (req, res) => {
+
         Month.findOne({
             user: req.user.id,
-            _id: req.body.id
+            _id: req.body.id.id
+
         }).then(month => {
             const newMonth = {
                 title: req.body.title,
@@ -101,17 +103,17 @@ router.get('/:id', passport.authenticate('jwt', {
         }))
 })
 
-//Delete user task
+//Delete user month
 
 router.delete('/:id', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
-    Tasks.findOne({
+    Month.findOne({
             user: req.user.id,
             _id: req.params.id
         })
-        .then(task => {
-            task.remove()
+        .then(month => {
+            month.remove()
                 .then(() => {
                     res.json({
                         success: true

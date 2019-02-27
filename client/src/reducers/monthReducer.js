@@ -1,7 +1,7 @@
 import {
 
     FETCH_ALL_MONTHS_AND_TASKS,
-
+    ADD_TASK,
     ADD_MONTH
 } from '../actions/types.js'
 import isEmpty from '../validation/is-empty'
@@ -27,11 +27,11 @@ export default function (state = initialState, action) {
                 month: action.payload,
                 loading: false
             }
-            // case ADD_TASK:
-            //     return {
-            //         ...state,
-            //         tasks: [action.payload, ...state.tasks]
-            //     }
+        case ADD_TASK:
+            return {
+                ...state,
+                month: action.payload
+            }
             // case TASKS_LOADING:
             //     return {
             //         ...state,

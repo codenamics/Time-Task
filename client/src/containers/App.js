@@ -47,7 +47,7 @@ class App extends Component {
               path="/login"
               render={() => <Login authType="login" title="Login" />}
             />
-            <Route path="/add" render={() => <AddTask />} />
+            <Route path="/add/:id" render={() => <AddTask />} />
             <Route path="/:id" render={() => <Timer />} />
           </Switch>
         </Router>

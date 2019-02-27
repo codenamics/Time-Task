@@ -17,7 +17,6 @@ export const addMonth = (data) => dispatch => {
                 type: ADD_MONTH,
                 payload: res.data
             })
-            console.log(res.data)
         })
         .catch(err =>
             dispatch({

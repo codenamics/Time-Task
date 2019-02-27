@@ -20,7 +20,6 @@ export const addTasks = (taskData) => dispatch => {
         type: ADD_TASK,
         payload: res.data
       })
-      console.log(res.data)
     })
     .catch(err =>
       dispatch({
@@ -29,29 +28,3 @@ export const addTasks = (taskData) => dispatch => {
       })
     );
 };
-
-
-export const deleteTask = (id) => dispatch => {
-  axios
-    .delete(`${host}/tasks/${id}`)
-    .then(res => {
-      dispatch({
-        type: DELETE_TASK,
-        payload: id
-
-      })
-      console.log(id)
-    })
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-export const setProfileLoading = () => {
-  return {
-    type: TASKS_LOADING
-  }
-}

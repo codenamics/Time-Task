@@ -38,25 +38,25 @@ class Dashboard extends Component {
           <ul className="sidebar__menu">
             <li>
               <Link to="/" className="sidebar__menu-item">
-                <i class="fas fa-home" />
+                <i className="fas fa-home" />
                 <span> Dashboard </span>{" "}
               </Link>{" "}
             </li>{" "}
             <li>
               <Link to="/health" className="sidebar__menu-item">
-                <i class="fas fa-heart" />
+                <i className="fas fa-heart" />
                 <span> placeholder </span>{" "}
               </Link>{" "}
             </li>{" "}
             <li>
               <Link to="/training" className="sidebar__menu-item">
-                <i class="fas fa-football-ball" />
+                <i className="fas fa-football-ball" />
                 <span> placeholder </span>{" "}
               </Link>{" "}
             </li>{" "}
             <li>
               <Link to="/notes" className="sidebar__menu-item">
-                <i class="fas fa-utensils" />
+                <i className="fas fa-utensils" />
                 <span> placeholder </span>{" "}
               </Link>{" "}
             </li>{" "}
@@ -64,7 +64,7 @@ class Dashboard extends Component {
         </div>{" "}
         <div className="nav">
           <div className="nav__logo">
-            <i class="far fa-clock" />
+            <i className="far fa-clock" />
 
             <span className="nav__logo-line" />
           </div>{" "}
@@ -87,7 +87,7 @@ class Dashboard extends Component {
             </ul>{" "}
           </div>{" "}
         </div>{" "}
-        <div class="main">
+        <div className="main">
           <div className="main__top">
             <div className="main__top-left">
               <span className="main__top-left--1 check"> Dashboard </span>{" "}

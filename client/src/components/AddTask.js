@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { addTasks } from "../actions/tasksAction";
+import { addTasks } from "../actions/tasksAction";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 class AddTask extends Component {
@@ -8,24 +8,24 @@ class AddTask extends Component {
     this.state = {
       title: "",
       description: "",
-      isHigh: null
+      time: 0
     };
   }
-
   onSubmitForm = e => {
+    console.log(this.props.match.params);
     e.preventDefault();
     const data = {
       title: this.state.title,
       description: this.state.description,
-      isHigh: this.state.isHigh
+      time: this.state.time,
+      id: this.props.match.params
     };
     this.props.addTasks(data);
     this.setState({
       title: "",
-      description: "",
-      isHigh: ""
+      description: ""
     });
-    this.props.history.push("/dashboard");
+    window.location.href = "/dashboard";
   };
   onChange = event => {
     const target = event.target;
@@ -37,7 +37,6 @@ class AddTask extends Component {
     });
   };
   render() {
-    console.log(this.state.isHigh);
     return (
       <div className="con-addTask">
         <form className="addTask" onSubmit={this.onSubmitForm}>
@@ -57,13 +56,6 @@ class AddTask extends Component {
             value={this.state.description}
             onChange={this.onChange}
           />{" "}
-          <label htmlFor=""> Podwyzszone koszty ? </label>{" "}
-          <input
-            name="isHigh"
-            type="checkbox"
-            checked={this.state.isHigh}
-            onChange={this.onChange}
-          />{" "}
           <button type="submit"> Add </button>{" "}
           <button>
             <Link to="/dashboard"> Back </Link>{" "}
@@ -77,6 +69,6 @@ class AddTask extends Component {
 export default connect(
   null,
   {
-    // addTasks
+    addTasks
   }
 )(withRouter(AddTask));
