@@ -24,9 +24,9 @@ class Dashboard extends Component {
       monthItems = <p> Loading </p>;
     } else {
       if (month.length > 0) {
-        monthItems = month.map(monthItem => (
-          <MonthRow key={monthItem._id} monthItem={monthItem} />
-        ));
+        monthItems = month.map(monthItem => {
+          return <MonthRow key={monthItem._id} monthItem={monthItem} />;
+        });
       } else {
         monthItems = <h4> You have no tasks </h4>;
       }

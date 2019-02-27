@@ -1,8 +1,11 @@
 import axios from "axios";
-
+import {
+  fetchAllMonthAndTasks
+} from './monthActions'
 import {
   GET_ERRORS,
   ADD_TASK,
+
 } from "./types";
 
 const host = "http://localhost:4000/api";
@@ -24,3 +27,19 @@ export const addTasks = (taskData) => dispatch => {
       })
     );
 };
+
+export const deleteTask = (id, taskID) => dispatch => {
+  axios
+    .delete(`${host}/tasks/task/${id}/${taskID}`)
+    .then(res => {
+      dispatch(
+        fetchAllMonthAndTasks()
+      )
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}

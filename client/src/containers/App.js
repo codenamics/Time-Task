@@ -4,6 +4,7 @@ import setAuthToken from "../service/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authAction";
 import Timer from "../components/Timer";
 import AddMonth from "../components/AddMonth";
+import PrivateRoute from "../components/PrivateRoute";
 import {
   BrowserRouter as Router,
   Route,
@@ -37,8 +38,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/addMonth" component={AddMonth} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/addMonth" component={AddMonth} />
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}
@@ -47,8 +48,8 @@ class App extends Component {
               path="/login"
               render={() => <Login authType="login" title="Login" />}
             />
-            <Route path="/add/:id" render={() => <AddTask />} />
-            <Route path="/:id" render={() => <Timer />} />
+            <PrivateRoute path="/add/:id" component={AddTask} />
+            <PrivateRoute path="/:id" component={Timer} />
           </Switch>
         </Router>
       </Provider>

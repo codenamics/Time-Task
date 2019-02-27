@@ -132,6 +132,29 @@ router.delete('/:id', passport.authenticate('jwt', {
         }))
 })
 
+
+router.delete('/task/:id/:task_id', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    Month.findOne({
+            user: req.user.id,
+            _id: req.params.id
+        })
+        .then(month => {
+
+            const removeIndex = month.tasks
+                .map(item => item.id)
+                .indexOf(req.params.task_id);
+
+            month.tasks.splice(removeIndex, 1);
+
+            month.save().then(month => res.json(month))
+        })
+        .catch(err => res.status(404).json({
+            notask: 'There is not task with that ID to be deleted'
+        }))
+})
+
 //Update user task
 
 router.put('/:id', passport.authenticate('jwt', {

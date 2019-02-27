@@ -9,7 +9,6 @@ import {
 
 const host = "http://localhost:4000/api";
 
-
 export const addMonth = (data, props) => dispatch => {
     axios
         .post(`${host}/tasks`, data)
@@ -28,7 +27,6 @@ export const addMonth = (data, props) => dispatch => {
         );
 };
 
-
 export const deleteMonth = (id) => dispatch => {
     axios
         .delete(`${host}/tasks/${id}`)
@@ -46,7 +44,6 @@ export const deleteMonth = (id) => dispatch => {
         );
 };
 
-
 export const fetchAllMonthAndTasks = () => dispatch => {
     axios
         .get(`${host}/tasks`)
@@ -55,7 +52,6 @@ export const fetchAllMonthAndTasks = () => dispatch => {
                 type: FETCH_ALL_MONTHS_AND_TASKS,
                 payload: res.data
             })
-            console.log(res.data)
         })
         .catch(err =>
             dispatch({
