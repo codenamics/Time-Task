@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 
 }
 
@@ -379,4 +379,12 @@ code {
   /* fallback for old browsers */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.landing {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }

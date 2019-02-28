@@ -120,24 +120,21 @@ h2 {
 
         &-btn {
             font-weight: 600;
-            font-size: 12px;
-            max-height: 40px;
+            font-size: 16px;
+
             padding: 13px 10px;
             min-width: 190px;
             text-decoration: none;
             text-align: center;
-            background: #56ccf2;
-            /* fallback for old browsers */
-            background: -webkit-linear-gradient(to top, #4893f5, #56ccf2);
-            /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to top,
-                #4893f5,
-                #56ccf2);
+            border: 2px solid #56ccf2;
+            background: transparent;
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             border-radius: 25px;
             color: #fff;
             cursor: pointer;
             transition: 0.5s all;
+
+            color: #56ccf2;
 
             &:hover {
                 box-shadow: 0 10px 114px 0 rgba(38, 58, 124, 0.329);
