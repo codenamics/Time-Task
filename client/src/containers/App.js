@@ -38,6 +38,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/timer" component={Timer} />
             <PrivateRoute path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <Route
