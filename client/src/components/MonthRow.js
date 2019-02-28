@@ -17,23 +17,23 @@ class MonthRow extends Component {
       <div className="main__one">
         <div className="table-flex">
           <div className="main__top-left">
-            <span className="main__top-left--1 check"> {monthItem.name} </span>
-            <span className="main__top-left--2"> Check your tasks </span>
-          </div>
+            <span className="main__top-left--1 check"> {monthItem.name} </span>{" "}
+            <span className="main__top-left--2"> Check your tasks </span>{" "}
+          </div>{" "}
           <button
             className="form__log-btn"
             onClick={this.onAction.bind(this, monthItem._id)}
           >
-            Add new Task
-          </button>
+            Add new Task{" "}
+          </button>{" "}
           <button
-            className="form__log-btn"
+            className="form__log-btn form__log-btn-red"
             onClick={this.onDeleteClick.bind(this, monthItem._id)}
           >
-            Delete Month
-          </button>
-        </div>
-        <TaskRow key={monthItem._id} task={monthItem} />
+            Delete Month{" "}
+          </button>{" "}
+        </div>{" "}
+        <TaskRow key={monthItem._id} task={monthItem} />{" "}
       </div>
     );
   }

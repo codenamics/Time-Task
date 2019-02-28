@@ -130,7 +130,7 @@ h2 {
             background: transparent;
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             border-radius: 25px;
-            color: #fff;
+
             cursor: pointer;
             transition: 0.5s all;
 
@@ -138,6 +138,11 @@ h2 {
 
             &:hover {
                 box-shadow: 0 10px 114px 0 rgba(38, 58, 124, 0.329);
+            }
+
+            &-red {
+                border: 2px solid red;
+                color: red;
             }
         }
     }
