@@ -97,19 +97,7 @@ router.get('/', passport.authenticate('jwt', {
 
 //Get task by ID of current logged in user
 
-router.get('/:id', passport.authenticate('jwt', {
-    session: false
-}), (req, res) => {
-    Tasks.findOne({
-            user: req.user.id,
-            _id: req.params.id
-        })
-        .then(task => {
-            res.json(task)
-        }).catch(err => res.status(404).json({
-            notask: 'There is not task with that ID'
-        }))
-})
+
 
 //Delete user month
 
@@ -157,32 +145,47 @@ router.delete('/task/:id/:task_id', passport.authenticate('jwt', {
 
 //Update user task
 
-router.put('/:id', passport.authenticate('jwt', {
+router.put('/:id/:task_id', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     const {
-        // title,
-        // description,
         time
     } = req.body
-    let updateTask = {}
-    // updateTask.title = title
-    // updateTask.description = description
-    updateTask.time = time
-    Tasks.findOneAndUpdate({
+
+    Month.findOne({
             user: req.user.id,
             _id: req.params.id
-        }, {
-            $set: updateTask
-        }, {
-            new: true
         })
         .then(task => {
-            res.json(task)
-        }).catch(err => res.status(404).json({
+            const timeIndex = task.tasks.filter(task => task.id === req.params.task_id)
+
+            timeIndex[0].time = req.body.time
+            task.save().then(month => res.json(month))
+        })
+        .catch(err => res.status(404).json({
             notask: 'There is not task with that ID to be updated'
         }))
 })
 
+
+router.get('/:id/:task_id', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+
+    Month.findOne({
+            user: req.user.id,
+            _id: req.params.id
+        })
+        .then(task => {
+            let timeIndex = task.tasks.filter(task => task.id === req.params.task_id)
+
+            res.json(timeIndex)
+
+        })
+
+        .catch(err => res.status(404).json({
+            notask: 'There is not task with that ID to be updated'
+        }))
+})
 
 module.exports = router

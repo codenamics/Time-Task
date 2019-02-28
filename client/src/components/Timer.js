@@ -15,15 +15,17 @@ class Timer extends Component {
     };
   }
   componentDidMount() {
-    console.log(123);
-    const { id } = this.props.match.params;
+    const { id, task_id } = this.props.match.params;
+    console.log(id, task_id);
     axios
-      .get(`http://localhost:4000/api/tasks/${id}`)
-      .then(res =>
-        this.setState({
-          seconds: res.data.time
-        })
+      .get(
+        `https://vast-everglades-35412.herokuapp.com/api/tasks/${id}/${task_id}`
       )
+      .then(res => {
+        this.setState({
+          seconds: res.data[0].time
+        });
+      })
       .catch(err => console.log(err));
   }
   goBack = () => {
@@ -44,18 +46,21 @@ class Timer extends Component {
   handleTimerStop = () => {
     clearInterval(this.timer);
   };
-  // handleCapture = () => {
-  //   const { id } = this.props.match.params;
-  //   console.log(id);
-  //   let data = {
-  //     time: this.state.seconds
-  //   };
-  //   axios
-  //     .put(`http://localhost:4000/api/tasks/${id}`, data)
-  //     .then(res => console.log(res.data))
-  //     .catch(err => console.log(err));
-  //   this.props.history.push("/dashboard");
-  // };
+  handleCapture = () => {
+    const { id, task_id } = this.props.match.params;
+    console.log(id);
+    let data = {
+      time: this.state.seconds
+    };
+    axios
+      .put(
+        `https://vast-everglades-35412.herokuapp.com/api/tasks/${id}/${task_id}`,
+        data
+      )
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+    window.location.href = "/dashboard";
+  };
   handelResetTimer = () => {
     this.setState({
       timerStopped: true,
@@ -85,7 +90,12 @@ class Timer extends Component {
             >
               Stop Timer{" "}
             </button>{" "}
-            <button className="btn btn-info mr-2 ml-2">Capture Time </button>{" "}
+            <button
+              className="btn btn-info mr-2 ml-2"
+              onClick={this.handleCapture}
+            >
+              Capture Time{" "}
+            </button>{" "}
             <button
               className="btn btn-danger mr-2 ml-2"
               onClick={this.handelResetTimer}

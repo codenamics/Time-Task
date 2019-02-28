@@ -38,7 +38,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/timer" component={Timer} />
+
             <PrivateRoute path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <Route
@@ -50,7 +50,7 @@ class App extends Component {
               render={() => <Login authType="login" title="Login" />}
             />
             <PrivateRoute path="/add/:id" component={AddTask} />
-            <PrivateRoute path="/:id" component={Timer} />
+            <PrivateRoute path="/:id/:task_id" component={Timer} />
           </Switch>
         </Router>
       </Provider>

@@ -4,12 +4,11 @@ import { deleteTask } from "../actions/tasksAction";
 import TimeFormat from "hh-mm-ss";
 import { withRouter } from "react-router-dom";
 class TaskRow extends Component {
-  onDeleteClick = id => {
-    let monthID = this.props.task._id;
+  onDeleteClick = (monthID, id) => {
     this.props.deleteTask(monthID, id);
   };
-  onAction = id => {
-    this.props.history.push(`/${id}`);
+  onAction = (id, taskID) => {
+    this.props.history.push(`/${id}/${taskID}`);
   };
   render() {
     const { task } = this.props;
@@ -19,17 +18,23 @@ class TaskRow extends Component {
       taskItems = <p> Loading </p>;
     } else {
       if (task.tasks.length > 0) {
-        taskItems = task.tasks.map(task => (
+        taskItems = task.tasks.map(taskItem => (
           <div className="table-row" key={task._id}>
-            <span> {task.title} </span> <span> {task.description} </span>
+            <span> {taskItem.title} </span>{" "}
+            <span> {taskItem.description} </span>
             <span className="text-center ">
-              {TimeFormat.fromS(task.time, "hh:mm:ss")}
-            </span>
+              {" "}
+              {TimeFormat.fromS(taskItem.time, "hh:mm:ss")}{" "}
+            </span>{" "}
             <i
-              class="fas fa-times text-center "
+              className="far fa-eye text-center "
+              onClick={this.onAction.bind(this, task._id, taskItem._id)}
+            />{" "}
+            <i
+              className="fas fa-times text-center "
               type="button"
-              onClick={this.onDeleteClick.bind(this, task._id)}
-            />
+              onClick={this.onDeleteClick.bind(this, task._id, taskItem._id)}
+            />{" "}
           </div>
         ));
       } else {
