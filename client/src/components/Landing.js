@@ -8,7 +8,7 @@ export default function Landing() {
         {" "}
         Login{" "}
       </Link>{" "}
-      <Link to="/register" className="form__log-btn">
+      <Link to="/register" className="form__log-btn mr-10">
         {" "}
         Register{" "}
       </Link>{" "}
