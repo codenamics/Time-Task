@@ -12,7 +12,6 @@ class AddTask extends Component {
     };
   }
   onSubmitForm = e => {
-    console.log(this.props.match.params);
     e.preventDefault();
     const data = {
       title: this.state.title,
