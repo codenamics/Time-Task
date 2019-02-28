@@ -7,7 +7,7 @@ import {
   SET_CURRENT_USER
 } from "./types";
 
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
 
 
 export const registerUser = (userData, history) => dispatch => {

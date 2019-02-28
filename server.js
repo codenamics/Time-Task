@@ -16,12 +16,12 @@ app.use(
   })
 );
 
-app.use(
-  cors({
-    origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE"
+//   })
+// );
 
 mongoose
   .connect(process.env.mongoURI)

@@ -8,7 +8,7 @@ import {
 
 } from "./types";
 
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
 
 
 export const addTasks = (taskData) => dispatch => {
