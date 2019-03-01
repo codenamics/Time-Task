@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { deleteTask } from "../actions/tasksAction";
 import TimeFormat from "hh-mm-ss";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+
 class TaskRow extends Component {
   onDeleteClick = (monthID, id) => {
     this.props.deleteTask(monthID, id);
@@ -45,6 +47,11 @@ class TaskRow extends Component {
     }
   }
 }
+
+TaskRow.propTypes = {
+  deleteTask: PropTypes.func.isRequired,
+  task: PropTypes.object.isRequired
+};
 
 export default connect(
   null,

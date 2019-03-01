@@ -4,10 +4,11 @@ import {
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import monthReducer from "./monthReducer";
+import taskReducer from "./taskReducer";
 
 export default combineReducers({
   auth: authReducer,
   errors: errorReducer,
-
+  task: taskReducer,
   month: monthReducer
 });

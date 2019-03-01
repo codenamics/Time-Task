@@ -1,18 +1,12 @@
 import {
     FETCH_ALL_MONTHS_AND_TASKS,
-    ADD_TASK,
     ADD_MONTH,
     DELETE_MONTH,
-
 } from '../actions/types.js'
-
 
 const initialState = {
     loading: false,
     month: [],
-    tasks: [],
-    task: {}
-
 }
 
 export default function (state = initialState, action) {
@@ -28,11 +22,6 @@ export default function (state = initialState, action) {
                 month: action.payload,
                 loading: false
             }
-        case ADD_TASK:
-            return {
-                ...state,
-                month: action.payload
-            }
         case DELETE_MONTH:
             return {
                 ...state,
@@ -40,6 +29,5 @@ export default function (state = initialState, action) {
             }
         default:
             return state
-
     }
 }

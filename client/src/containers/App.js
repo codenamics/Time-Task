@@ -1,23 +1,17 @@
 import React, { Component } from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import store from "../store";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../service/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authAction";
 import Timer from "../components/Timer";
 import AddMonth from "../components/AddMonth";
 import PrivateRoute from "../components/PrivateRoute";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  browserHistory
-} from "react-router-dom";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import { Provider } from "react-redux";
-import store from "../store";
 import Dashboard from "../components/Dashboard";
 import AddTask from "../components/AddTask";
-import Action from "../components/Action";
 import Landing from "../components/Landing";
 
 if (localStorage.jwtToken) {
@@ -38,9 +32,6 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            <PrivateRoute path="/addMonth" component={AddMonth} />
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}
@@ -49,6 +40,8 @@ class App extends Component {
               path="/login"
               render={() => <Login authType="login" title="Login" />}
             />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/addMonth" component={AddMonth} />
             <PrivateRoute path="/add/:id" component={AddTask} />
             <PrivateRoute path="/:id/:task_id" component={Timer} />
           </Switch>
