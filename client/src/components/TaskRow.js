@@ -37,7 +37,6 @@ class TaskRow extends Component {
             />{" "}
             <i
               className="far fa-trash-alt text-center span-border-right"
-              type="button"
               onClick={this.onDeleteClick.bind(this, task._id, taskItem._id)}
             />{" "}
           </div>
