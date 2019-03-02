@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import TaskRow from "./TaskRow";
 import { deleteMonth } from "../actions/monthActions";
+import TotalTime from "./TotalTime";
 
 class MonthRow extends Component {
   onDeleteClick = id => {
@@ -13,13 +14,14 @@ class MonthRow extends Component {
   };
   render() {
     const { monthItem } = this.props;
+    console.log(monthItem);
     return (
       <div className="main__one">
         <div className="table-flex">
           <div className="main__top-left">
             <span className="main__top-left--1 check">
-              {monthItem.name}&nbsp;|&nbsp;
-              <span className="month-year">{monthItem.year}</span>
+              {monthItem.name} &nbsp; | &nbsp;
+              <span className="month-year"> {monthItem.year} </span>
             </span>
             <span className="main__top-left--2"> Check your tasks </span>
           </div>
@@ -37,6 +39,7 @@ class MonthRow extends Component {
           </button>
         </div>
         <TaskRow key={monthItem._id} task={monthItem} />
+        <TotalTime time={monthItem} />
       </div>
     );
   }

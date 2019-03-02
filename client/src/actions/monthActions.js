@@ -4,7 +4,7 @@ import {
     FETCH_ALL_MONTHS_AND_TASKS,
     GET_ERRORS,
     ADD_MONTH,
-    DELETE_MONTH
+    DELETE_MONTH,
 } from "./types";
 
 const host = "https://vast-everglades-35412.herokuapp.com/api";

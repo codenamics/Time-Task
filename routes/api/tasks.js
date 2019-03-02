@@ -120,6 +120,21 @@ router.delete('/:id', passport.authenticate('jwt', {
         }))
 })
 
+//Get month by ID
+router.get('/:id', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    Month.findOne({
+            user: req.user.id,
+            _id: req.params.id
+        })
+        .then(month => {
+            res.json(month)
+        }).catch(err => res.status(404).json({
+            notask: 'There is not task with that ID to be deleted'
+        }))
+})
+
 
 router.delete('/task/:id/:task_id', passport.authenticate('jwt', {
     session: false
@@ -171,7 +186,6 @@ router.put('/:id/:task_id', passport.authenticate('jwt', {
 router.get('/:id/:task_id', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
-
     Month.findOne({
             user: req.user.id,
             _id: req.params.id
@@ -180,9 +194,7 @@ router.get('/:id/:task_id', passport.authenticate('jwt', {
             let timeIndex = task.tasks.filter(task => task.id === req.params.task_id)
 
             res.json(timeIndex)
-
         })
-
         .catch(err => res.status(404).json({
             notask: 'There is not task with that ID to be updated'
         }))
