@@ -13,6 +13,7 @@ import Register from "../components/Register";
 import Dashboard from "../components/Dashboard";
 import AddTask from "../components/AddTask";
 import Landing from "../components/Landing";
+import Loader from "../components/Loader";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -32,6 +33,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/loader" component={Loader} />
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}

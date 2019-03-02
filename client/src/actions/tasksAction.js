@@ -9,7 +9,7 @@ import {
   LOADING_STATE
 } from "./types";
 
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
 
 export const addTasks = (taskData) => dispatch => {
   axios
@@ -29,18 +29,20 @@ export const addTasks = (taskData) => dispatch => {
 };
 
 export const deleteTask = (id, taskID) => dispatch => {
-  axios
-    .delete(`${host}/tasks/task/${id}/${taskID}`)
-    .then(res => {
-      dispatch(
-        fetchAllMonthAndTasks()
+  if (window.confirm('Are you sure? This can NOT be undone')) {
+    axios
+      .delete(`${host}/tasks/task/${id}/${taskID}`)
+      .then(res => {
+        dispatch(
+          fetchAllMonthAndTasks()
+        )
+      }).catch(err =>
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
       )
-    }).catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    )
+  }
 }
 
 export const loadTime = (id, task_id) => dispatch => {
@@ -62,7 +64,7 @@ export const loadTime = (id, task_id) => dispatch => {
 
 export const postTime = (id, task_id, data, props) => dispatch => {
   axios
-    .put(`http://localhost:4000/api/tasks/${id}/${task_id}`, data)
+    .put(`${host}/tasks/${id}/${task_id}`, data)
     .then(() => {
       props.history.push('/dashboard')
     }).catch(err =>

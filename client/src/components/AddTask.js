@@ -39,27 +39,32 @@ class AddTask extends Component {
     return (
       <div className="con-addTask">
         <form className="addTask" onSubmit={this.onSubmitForm}>
-          <label htmlFor=""> Title </label>{" "}
+          <label htmlFor=""> Title </label>
           <input
             type="text"
             onChange={this.onChange}
             name="title"
             value={this.state.title}
             onChange={this.onChange}
-          />{" "}
-          <label htmlFor=""> Description </label>{" "}
+          />
+          <label htmlFor=""> Description </label>
           <input
             type="text"
             onChange={this.onChange}
             name="description"
             value={this.state.description}
             onChange={this.onChange}
-          />{" "}
-          <button type="submit"> Add </button>{" "}
-          <button>
-            <Link to="/dashboard"> Back </Link>{" "}
-          </button>{" "}
-        </form>{" "}
+          />
+          <button type="submit" className="form__log-btn">
+            {" "}
+            Add{" "}
+          </button>
+        </form>
+
+        <Link className="form__log-btn" to="/dashboard">
+          {" "}
+          Back{" "}
+        </Link>
       </div>
     );
   }

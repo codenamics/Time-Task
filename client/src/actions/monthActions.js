@@ -7,7 +7,7 @@ import {
     DELETE_MONTH
 } from "./types";
 
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
 
 export const addMonth = (data, props) => dispatch => {
     axios
@@ -28,20 +28,22 @@ export const addMonth = (data, props) => dispatch => {
 };
 
 export const deleteMonth = (id) => dispatch => {
-    axios
-        .delete(`${host}/tasks/${id}`)
-        .then(res => {
-            dispatch({
-                type: DELETE_MONTH,
-                payload: id
+    if (window.confirm('Are you sure? This can NOT be undone')) {
+        axios
+            .delete(`${host}/tasks/${id}`)
+            .then(res => {
+                dispatch({
+                    type: DELETE_MONTH,
+                    payload: id
+                })
             })
-        })
-        .catch(err =>
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
-        );
+            .catch(err =>
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response.data
+                })
+            );
+    }
 };
 
 export const fetchAllMonthAndTasks = () => dispatch => {
