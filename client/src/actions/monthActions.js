@@ -7,7 +7,7 @@ import {
     DELETE_MONTH,
 } from "./types";
 
-const host = "https://vast-everglades-35412.herokuapp.com/api";
+const host = "http://localhost:4000/api";
 
 export const addMonth = (data, props) => dispatch => {
     axios

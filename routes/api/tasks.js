@@ -3,6 +3,43 @@ const router = express.Router()
 const passport = require('passport')
 const validateMonthInput = require('../../validation/month')
 const Month = require('../../models/Tasks')
+const pdfTemplate = require('../../documents');
+const pdf = require('html-pdf');
+const path = require("path");
+
+
+router.post(`/create-pdf/:id`, passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    Month.findOne({
+            user: req.user.id,
+            _id: req.params.id
+        })
+
+        .then(month => {
+            console.log(month)
+            pdf.create(pdfTemplate(month), {}).toFile('documents/result.pdf', (err) => {
+                if (err) {
+                    res.send(Promise.reject());
+                }
+
+                res.send(Promise.resolve());
+            });
+        }).catch(err => res.status(404).json({
+            notask: 'There is not task with that ID to be deleted'
+        }))
+
+
+});
+
+router.get('/fetch-pdf', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
+    res.sendFile(path.join(__dirname, '../../documents', 'result.pdf'));
+
+})
+
+
 
 
 //Create new month
