@@ -9,7 +9,7 @@ const Con = styled.div`
 `;
 class SuccessfulPay extends Component {
   componentDidMount() {
-    setInterval(() => {
+    setTimeout(() => {
       this.props.history.push("/dashboard");
     }, 2000);
   }
