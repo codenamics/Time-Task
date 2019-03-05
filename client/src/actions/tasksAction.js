@@ -66,7 +66,7 @@ export const postTime = (id, task_id, data, props) => dispatch => {
   axios
     .put(`${host}/tasks/${id}/${task_id}`, data)
     .then(() => {
-      props.history.push('/success')
+      props.history.push('/dashboard')
     }).catch(err =>
       dispatch({
         type: GET_ERRORS,
