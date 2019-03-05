@@ -14,6 +14,7 @@ import Dashboard from "../components/Dashboard";
 import AddTask from "../components/AddTask";
 import Landing from "../components/Landing";
 import Loader from "../components/Loader";
+import SuccessfulPay from "../components/SuccessfulPay";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -46,6 +47,7 @@ class App extends Component {
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <PrivateRoute path="/add/:id" component={AddTask} />
             <PrivateRoute path="/:id/:task_id" component={Timer} />
+            <PrivateRoute path="/success" component={SuccessfulPay} />
           </Switch>
         </Router>
       </Provider>
