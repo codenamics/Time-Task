@@ -21,7 +21,6 @@ class TotalTime extends Component {
   }
 
   render() {
-    console.log(this.state.totalOwed);
     if (this.props.time.tasks.length > 0) {
       return (
         <React.Fragment>

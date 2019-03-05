@@ -12,7 +12,7 @@ router.post(`/create-pdf/:id`, passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     let userData = req.user
-    console.log(req.user)
+
     Month.findOne({
             user: req.user.id,
             _id: req.params.id
@@ -61,7 +61,7 @@ router.post('/', passport.authenticate('jwt', {
         name,
         year
     } = req.body
-    console.log(req.body)
+
     const newMonth = new Month({
         name,
         year,

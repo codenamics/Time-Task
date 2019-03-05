@@ -36,7 +36,7 @@ class MonthRow extends Component {
   };
   render() {
     const { monthItem } = this.props;
-    console.log(monthItem);
+
     return (
       <div className="main__one">
         <div className="table-flex">

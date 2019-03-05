@@ -11,7 +11,8 @@ class Timer extends Component {
     this.state = {
       timerStopped: true,
       seconds: 0,
-      time: 0
+      time: 0,
+      isButtonDisabled: false
     };
   }
 
@@ -35,6 +36,9 @@ class Timer extends Component {
 
   handleTimerStart = e => {
     e.preventDefault();
+    this.setState({
+      isButtonDisabled: true
+    });
     this.timer = setInterval(() => {
       let time = TimeFormat.fromS(this.state.seconds, "hh:mm:ss");
       this.setState({
@@ -45,6 +49,9 @@ class Timer extends Component {
   };
 
   handleTimerStop = () => {
+    this.setState({
+      isButtonDisabled: false
+    });
     clearInterval(this.timer);
   };
 
@@ -69,38 +76,40 @@ class Timer extends Component {
       <div className="container">
         <div className="timer-container">
           <div className="current-timer">
-            {TimeFormat.fromS(this.state.seconds, "hh:mm:ss")}
-          </div>
+            {" "}
+            {TimeFormat.fromS(this.state.seconds, "hh:mm:ss")}{" "}
+          </div>{" "}
           <div className="timer-controls">
             <button
               className="btn btn-success mr-2 ml-2"
               onClick={this.handleTimerStart}
+              disabled={this.state.isButtonDisabled}
             >
-              Start Timer
-            </button>
+              Start Timer{" "}
+            </button>{" "}
             <button
               className="btn btn-alert mr-2 ml-2"
               onClick={this.handleTimerStop}
             >
-              Stop Timer
-            </button>
+              Stop Timer{" "}
+            </button>{" "}
             <button
               className="btn btn-info mr-2 ml-2"
               onClick={this.handleCapture}
             >
-              Capture Time
-            </button>
+              Capture Time{" "}
+            </button>{" "}
             <button
               className="btn btn-danger mr-2 ml-2"
               onClick={this.handelResetTimer}
             >
               Reset!
-            </button>
+            </button>{" "}
             <button className="btn btn-danger mr-2 ml-2" onClick={this.goBack}>
-              Go back
-            </button>
-          </div>
-        </div>
+              Go back{" "}
+            </button>{" "}
+          </div>{" "}
+        </div>{" "}
       </div>
     );
   }
