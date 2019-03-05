@@ -137,7 +137,8 @@ h2 {
             color: #55a8fd;
 
             &:hover {
-                box-shadow: 0 10px 114px 0 rgba(38, 58, 124, 0.329);
+                background: #55a8fd;
+                color: white
             }
 
             &-red {
@@ -151,6 +152,11 @@ h2 {
 .green-btn {
     border: 2px solid #43ce6d;
     color: #43ce6d;
+
+    &:hover {
+        background: #43ce6d;
+        color: black
+    }
 }
 
 .mr-10 {
