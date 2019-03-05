@@ -46,6 +46,7 @@ class App extends Component {
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <PrivateRoute path="/add/:id" component={AddTask} />
             <PrivateRoute path="/:id/:task_id" component={Timer} />
+            <PrivateRoute path="/success" component={SuccessfulPay} />
           </Switch>
         </Router>
       </Provider>
