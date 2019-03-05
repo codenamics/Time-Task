@@ -63,13 +63,6 @@ class Timer extends Component {
     };
     this.props.postTime(id, task_id, data, this.props);
   };
-  handelResetTimer = () => {
-    this.setState({
-      timerStopped: true,
-      time: 0,
-      seconds: 0
-    });
-  };
 
   render() {
     return (
@@ -98,12 +91,6 @@ class Timer extends Component {
               onClick={this.handleCapture}
             >
               Capture Time{" "}
-            </button>{" "}
-            <button
-              className="btn btn-danger mr-2 ml-2"
-              onClick={this.handelResetTimer}
-            >
-              Reset!
             </button>{" "}
             <button className="btn btn-danger mr-2 ml-2" onClick={this.goBack}>
               Go back{" "}
