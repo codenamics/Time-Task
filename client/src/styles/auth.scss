@@ -144,6 +144,11 @@ h2 {
             &-red {
                 border: 2px solid red;
                 color: red;
+
+                &:hover {
+                    background: red;
+                    color: white
+                }
             }
         }
     }
@@ -155,7 +160,7 @@ h2 {
 
     &:hover {
         background: #43ce6d;
-        color: black
+        color: white
     }
 }
 
