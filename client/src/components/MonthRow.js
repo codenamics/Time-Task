@@ -15,11 +15,16 @@ class MonthRow extends Component {
   };
   onGen = id => {
     axios
-      .post(`http://localhost:4000/api/tasks/create-pdf/${id}`)
+      .post(
+        `https://vast-everglades-35412.herokuapp.com/api/tasks/create-pdf/${id}`
+      )
       .then(res =>
-        axios.get("http://localhost:4000/api/tasks/fetch-pdf", {
-          responseType: "blob"
-        })
+        axios.get(
+          "https://vast-everglades-35412.herokuapp.com/api/tasks/fetch-pdf",
+          {
+            responseType: "blob"
+          }
+        )
       )
       .then(res => {
         const pdfBlob = new Blob([res.data], {

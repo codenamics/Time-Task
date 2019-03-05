@@ -11,14 +11,16 @@ const path = require("path");
 router.post(`/create-pdf/:id`, passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
+    let userData = req.user
+    console.log(req.user)
     Month.findOne({
             user: req.user.id,
             _id: req.params.id
         })
 
         .then(month => {
-            console.log(month)
-            pdf.create(pdfTemplate(month), {}).toFile('documents/result.pdf', (err) => {
+
+            pdf.create(pdfTemplate(month, userData), {}).toFile('documents/result.pdf', (err) => {
                 if (err) {
                     res.send(Promise.reject());
                 }

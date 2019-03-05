@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 class TotalTime extends Component {
   state = {
-    totalOwed: null
+    totalTime: null
   };
   static getDerivedStateFromProps(props, state) {
     const { time } = props;
@@ -15,7 +15,7 @@ class TotalTime extends Component {
       const total = time.tasks.reduce((total, task) => {
         return total + parseFloat(task.time.toString());
       }, 0);
-      return { totalOwed: total };
+      return { totalTime: total };
     }
     return null;
   }
@@ -30,7 +30,7 @@ class TotalTime extends Component {
             <span />
             <span className="span-border-left bold">
               {" "}
-              {TimeFormat.fromS(this.state.totalOwed, "hh:mm:ss")}{" "}
+              {TimeFormat.fromS(this.state.totalTime, "hh:mm:ss")}{" "}
             </span>
           </div>
         </React.Fragment>
