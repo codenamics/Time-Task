@@ -13,7 +13,7 @@ import {
     LOADING_DONE_PDF
 } from "./types";
 
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
 
 export const addMonth = (data, props) => dispatch => {
     axios
