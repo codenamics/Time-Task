@@ -31,8 +31,12 @@ class MonthRow extends Component {
           type: "application/pdf"
         });
 
-        saveAs(pdfBlob, "newPdf.pdf");
-      });
+        return saveAs(pdfBlob, "newPdf.pdf");
+      })
+      .then(() => {
+        this.props.history.push("/success");
+      })
+      .catch(err => console.log(err));
   };
   render() {
     const { monthItem } = this.props;
