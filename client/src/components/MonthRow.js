@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import TaskRow from "./TaskRow";
-import { deleteMonth } from "../actions/monthActions";
+import { deleteMonth, genPDF } from "../actions/monthActions";
 import TotalTime from "./TotalTime";
-import { saveAs } from "file-saver";
-import axios from "axios";
+
 class MonthRow extends Component {
   onDeleteClick = id => {
     this.props.deleteMonth(id);
@@ -14,32 +13,31 @@ class MonthRow extends Component {
     this.props.history.push(`/add/${id}`);
   };
   onGen = id => {
-    axios
-      .post(
-        `https://vast-everglades-35412.herokuapp.com/api/tasks/create-pdf/${id}`
-      )
-      .then(res =>
-        axios.get(
-          "https://vast-everglades-35412.herokuapp.com/api/tasks/fetch-pdf",
-          {
-            responseType: "blob"
-          }
-        )
-      )
-      .then(res => {
-        const pdfBlob = new Blob([res.data], {
-          type: "application/pdf"
-        });
-
-        return saveAs(pdfBlob, "newPdf.pdf");
-      })
-      .then(() => {
-        this.props.history.push("/success");
-      })
-      .catch(err => console.log(err));
+    this.props.genPDF(id, this.props);
   };
   render() {
-    const { monthItem } = this.props;
+    const { monthItem, month } = this.props;
+    let btn;
+    if (month.loading) {
+      btn = (
+        <button
+          className="form__log-btn green-btn"
+          onClick={this.onGen.bind(this, monthItem._id)}
+          disabled="true"
+        >
+          Loading...
+        </button>
+      );
+    } else {
+      btn = (
+        <button
+          className="form__log-btn green-btn"
+          onClick={this.onGen.bind(this, monthItem._id)}
+        >
+          PDF
+        </button>
+      );
+    }
 
     return (
       <div className="main__one">
@@ -57,12 +55,8 @@ class MonthRow extends Component {
           >
             Add new Task
           </button>
-          <button
-            className="form__log-btn green-btn"
-            onClick={this.onGen.bind(this, monthItem._id)}
-          >
-            PDF
-          </button>
+
+          {btn}
           <button
             className="form__log-btn form__log-btn-red"
             onClick={this.onDeleteClick.bind(this, monthItem._id)}
@@ -77,9 +71,14 @@ class MonthRow extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  month: state.month
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   {
-    deleteMonth
+    deleteMonth,
+    genPDF
   }
 )(withRouter(MonthRow));

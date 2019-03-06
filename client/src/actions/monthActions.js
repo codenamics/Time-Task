@@ -1,13 +1,19 @@
 import axios from "axios";
-
+import {
+    saveAs
+} from "file-saver";
 import {
     FETCH_ALL_MONTHS_AND_TASKS,
     GET_ERRORS,
     ADD_MONTH,
     DELETE_MONTH,
+    LOADING_DONE,
+    LOADING_STATE,
+    LOADING_STATE_PDF,
+    LOADING_DONE_PDF
 } from "./types";
 
-const host = "https://vast-everglades-35412.herokuapp.com/api";
+const host = "http://localhost:4000/api";
 
 export const addMonth = (data, props) => dispatch => {
     axios
@@ -62,3 +68,38 @@ export const fetchAllMonthAndTasks = () => dispatch => {
             })
         );
 };
+
+export const genPDF = (id, props) => dispatch => {
+    dispatch(setLoadingPDF())
+    axios
+        .post(
+            `${host}/tasks/create-pdf/${id}`
+        )
+        .then(() =>
+            axios.get(
+                `${host}/tasks/fetch-pdf`, {
+                    responseType: "blob"
+                }
+            )
+        )
+        .then(res => {
+            const pdfBlob = new Blob([res.data], {
+                type: "application/pdf"
+            });
+
+            return saveAs(pdfBlob, "newPdf.pdf");
+        })
+        .then(() => {
+            dispatch({
+                type: LOADING_DONE,
+            })
+            props.history.push("/success");
+        })
+        .catch(err => console.log(err));
+};
+
+export const setLoadingPDF = () => {
+    return {
+        type: LOADING_STATE
+    }
+}

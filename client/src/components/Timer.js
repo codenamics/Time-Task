@@ -31,7 +31,7 @@ class Timer extends Component {
   }
 
   goBack = () => {
-    this.props.history.push("/dashboard");
+    window.location.href = "/dashboard";
   };
 
   handleTimerStart = e => {

@@ -2,20 +2,37 @@ import {
     FETCH_ALL_MONTHS_AND_TASKS,
     ADD_MONTH,
     DELETE_MONTH,
+    LOADING_STATE,
+    LOADING_DONE,
 
 } from '../actions/types.js'
 
 const initialState = {
-    loading: false,
+
     month: [],
+    loading: false,
+
 }
 
 export default function (state = initialState, action) {
     switch (action.type) {
+        case LOADING_STATE:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case LOADING_DONE:
+            return {
+                ...state,
+                loading: false
+            }
+
         case ADD_MONTH:
             return {
                 ...state,
-                month: [action.payload, ...state.month]
+                month: [action.payload, ...state.month],
+                loading: false,
             }
         case FETCH_ALL_MONTHS_AND_TASKS:
             return {

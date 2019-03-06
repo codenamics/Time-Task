@@ -13,8 +13,9 @@ import Register from "../components/Register";
 import Dashboard from "../components/Dashboard";
 import AddTask from "../components/AddTask";
 import Landing from "../components/Landing";
-import Loader from "../components/Loader";
+
 import SuccessfulPay from "../components/SuccessfulPay";
+import Main from "./Main";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -34,7 +35,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/loader" component={Loader} />
+
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}
@@ -43,7 +44,7 @@ class App extends Component {
               path="/login"
               render={() => <Login authType="login" title="Login" />}
             />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/dashboard" component={Main} />
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <PrivateRoute path="/add/:id" component={AddTask} />
             <PrivateRoute path="/:id/:task_id" component={Timer} />

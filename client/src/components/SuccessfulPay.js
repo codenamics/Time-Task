@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
 const Con = styled.div`
-  background-color: #6772e5;
+  background-color: white;
   width: 100%;
   height: 100vh;
   padding-top: 150px;

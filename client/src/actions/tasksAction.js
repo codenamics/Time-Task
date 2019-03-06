@@ -6,10 +6,11 @@ import {
   GET_ERRORS,
   ADD_TASK,
   LOAD_TIME,
-  LOADING_STATE
+  LOADING_STATE,
+  LOADING_DONE
 } from "./types";
 
-const host = "https://vast-everglades-35412.herokuapp.com/api";
+const host = "http://localhost:4000/api";
 
 export const addTasks = (taskData) => dispatch => {
   axios
@@ -67,7 +68,16 @@ export const postTime = (id, task_id, data, props) => dispatch => {
     .put(`${host}/tasks/${id}/${task_id}`, data)
     .then(() => {
       props.history.push('/success')
-    }).catch(err =>
+      dispatch({
+        type: LOAD_TIME,
+
+      })
+    }).then(() => {
+      dispatch({
+        type: LOADING_DONE,
+      })
+    })
+    .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data

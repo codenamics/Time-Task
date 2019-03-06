@@ -6,8 +6,9 @@ import {
 
 
 const initialState = {
-    loading: false,
+
     time: [],
+    loading: false,
 }
 
 export default function (state = initialState, action) {
@@ -20,13 +21,16 @@ export default function (state = initialState, action) {
         case ADD_TASK:
             return {
                 ...state,
-                month: action.payload
+                month: action.payload,
+                loading: false,
             }
         case LOAD_TIME:
             return {
                 ...state,
+
                 time: action.payload,
                 loading: false,
+
             }
         default:
             return state
