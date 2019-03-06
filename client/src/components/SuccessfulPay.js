@@ -12,7 +12,7 @@ class SuccessfulPay extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.history.push("/dashboard");
-    }, 2000);
+    }, 2500);
   }
 
   render() {
