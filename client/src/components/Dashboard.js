@@ -85,8 +85,7 @@ class Dashboard extends Component {
                 <div className="main__top-left">
                   <span className="main__top-left--1 check"> Dashboard </span>
                   <span className="main__top-left--2">
-                    {" "}
-                    You are in main panel{" "}
+                    You are in main panel
                   </span>
                 </div>
                 <Link to="/addMonth" className="form__log-btn ">
@@ -100,11 +99,81 @@ class Dashboard extends Component {
           </div>
         );
       } else {
-        dashContent = <Loading />;
+        dashContent = (
+          <div className="grid-con">
+            <div className="sidebar">
+              <ul className="sidebar__menu">
+                <li>
+                  <Link to="/" className="sidebar__menu-item">
+                    <i className="fas fa-home" />
+                    <span> Dashboard </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/health" className="sidebar__menu-item">
+                    <i className="fas fa-heart" />
+                    <span> placeholder </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/training" className="sidebar__menu-item">
+                    <i className="fas fa-football-ball" />
+                    <span> placeholder </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/notes" className="sidebar__menu-item">
+                    <i className="fas fa-utensils" />
+                    <span> placehder </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="nav">
+              <div className="nav__logo">
+                <i className="far fa-clock" />
+
+                <span className="nav__logo-line" />
+              </div>
+              <div className="nav__content">
+                <input type="text" className="search" placeholder="Search..." />
+                <ul className="nav__content-items">
+                  <li>
+                    <a href="http://" className="form__log-btn ">
+                      Report Issue
+                    </a>
+                  </li>
+                  <li>
+                    <span className="name" />
+                  </li>
+                  <li>
+                    <button className="logout" onClick={this.logout}>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="main">
+              <div className="main__top">
+                <div className="main__top-left">
+                  <span className="main__top-left--1 check"> Dashboard </span>
+                  <span className="main__top-left--2">
+                    You are in main panel
+                  </span>
+                </div>
+                <Link to="/addMonth" className="form__log-btn ">
+                  Add New Month
+                </Link>
+              </div>
+              <p> You have no tasks </p>
+            </div>
+          </div>
+        );
       }
     }
 
-    return <React.Fragment>{dashContent}</React.Fragment>;
+    return <React.Fragment> {dashContent} </React.Fragment>;
   }
 }
 const mapStateToProps = state => ({
