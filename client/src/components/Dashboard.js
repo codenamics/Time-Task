@@ -166,7 +166,7 @@ class Dashboard extends Component {
                   Add New Month
                 </Link>
               </div>
-              <p> You have no tasks </p>
+              <p className="no-tasks"> You have no tasks </p>
             </div>
           </div>
         );
