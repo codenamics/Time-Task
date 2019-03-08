@@ -16,6 +16,8 @@ import Landing from "../components/Landing";
 
 import SuccessfulPay from "../components/SuccessfulPay";
 import Main from "./Main";
+import ResetPassword from "../components/ResetPassword";
+import NewPassword from "../components/NewPassword";
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -35,7 +37,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-
+            <Route exact path="/reset" component={ResetPassword} />
+            <Route exact path="/reset/:token" component={NewPassword} />
             <Route
               path="/register"
               render={() => <Register authType="register" title="Register" />}

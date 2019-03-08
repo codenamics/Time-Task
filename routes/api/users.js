@@ -124,6 +124,7 @@ router.get('/current', passport.authenticate('jwt', {
 })
 
 router.post('/reset', (req, res) => {
+
     crypto.randomBytes(32, (err, buffer) => {
         if (err) {
             console.log(err)
@@ -133,6 +134,7 @@ router.post('/reset', (req, res) => {
                 email: req.body.email
             })
             .then(user => {
+
                 if (!user) {
                     return res.status(400).json({
                         email: "No email found"
@@ -164,7 +166,7 @@ router.post('/new-password', (req, res) => {
         newPassword
     } = req.body
     let resetUser;
-
+    console.log(req.body)
     User.findOne({
             resetToken: token,
             resetTokenExp: {
