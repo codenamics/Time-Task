@@ -150,7 +150,7 @@ router.post('/reset', (req, res) => {
                     from: 'time&task@com.com',
                     subject: 'Password rest',
                     html: `'<p>Password reset</p>'
-                    <a href="http://localhost:3000/reset/${token}">Reset password</a>
+                    <a href="https://vast-everglades-35412.herokuapp.com/reset/${token}">Reset password</a>
                     `
                 })
             })

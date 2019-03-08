@@ -20,7 +20,7 @@ export default class ResetPassword extends Component {
     };
 
     axios
-      .post("http://localhost:4000/api/users/reset", data)
+      .post("https://vast-everglades-35412.herokuapp.com/api/users/reset", data)
       .then(res => {
         console.log(res.data);
       })
