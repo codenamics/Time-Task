@@ -26,13 +26,9 @@ class AddTask extends Component {
     });
     window.location.href = "/dashboard";
   };
-  onChange = event => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
+  handleChange = input => e => {
     this.setState({
-      [name]: value
+      [input]: e.target.value
     });
   };
   render() {
@@ -40,20 +36,40 @@ class AddTask extends Component {
       <div className="con-addTask">
         <form className="addTask" onSubmit={this.onSubmitForm}>
           <label htmlFor=""> Title </label>
-          <input
-            type="text"
-            onChange={this.onChange}
-            name="title"
-            value={this.state.title}
-            onChange={this.onChange}
-          />
+          <select name="title" onChange={this.handleChange("title")}>
+            <option value="" disabled selected>
+              Select your option
+            </option>
+            <option value="SDW mapping">SDW mapping</option>
+            <option value="CMR study specific-logic">
+              CMR study specific-logic
+            </option>
+            <option value="CMR study specific-programming">
+              CMR study specific-programming
+            </option>
+            <option value="CMR study specific-test scenarion">
+              CMR study specific-test scenarion
+            </option>
+            <option value="CMR study specific-creating test data">
+              CMR study specific-creating test data
+            </option>
+            <option value="ODW mapping">ODW mapping</option>
+            <option value="XRR RISC-logic">XRR RISC-logic</option>
+            <option value="XRR RISC-programming">XRR RISC-programming</option>
+            <option value="XRR RISC-creating test data">
+              XRR RISC-creating test data
+            </option>
+            <option value="XRR RISC-configure file loader">
+              XRR RISC-configure file loader
+            </option>
+          </select>
+
           <label htmlFor=""> Description </label>
           <input
             type="text"
-            onChange={this.onChange}
             name="description"
             value={this.state.description}
-            onChange={this.onChange}
+            onChange={this.handleChange("description")}
           />
           <button type="submit" className="form__log-btn">
             {" "}

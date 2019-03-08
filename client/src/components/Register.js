@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "../styles/auth.scss";
 import InputGroup from "../utils/InputGroup";
 import { connect } from "react-redux";

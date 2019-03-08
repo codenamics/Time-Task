@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "../styles/auth.scss";
 import InputGroup from "../utils/InputGroup";
 import { connect } from "react-redux";
@@ -85,6 +85,10 @@ class Login extends Component {
                 >
                   {title}
                 </button>
+
+                <Link className="form__log-btn" to="/reset">
+                  Forgot Password ?
+                </Link>
               </div>
             </form>
           </div>
