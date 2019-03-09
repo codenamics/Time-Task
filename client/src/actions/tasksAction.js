@@ -1,5 +1,7 @@
 import axios from "axios";
-import { fetchAllMonthAndTasks } from "./monthActions";
+import {
+  fetchAllMonthAndTasks
+} from "./monthActions";
 import {
   GET_ERRORS,
   ADD_TASK,

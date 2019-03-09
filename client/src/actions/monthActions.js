@@ -1,12 +1,15 @@
 import axios from "axios";
-import { saveAs } from "file-saver";
+import {
+  saveAs
+} from "file-saver";
 import {
   FETCH_ALL_MONTHS_AND_TASKS,
   GET_ERRORS,
   ADD_MONTH,
   DELETE_MONTH,
   LOADING_DONE,
-  LOADING_STATE
+  LOADING_STATE,
+  FILTER_MONTH
 } from "./types";
 
 const host = "https://vast-everglades-35412.herokuapp.com/api";
@@ -65,6 +68,27 @@ export const fetchAllMonthAndTasks = () => dispatch => {
       })
     );
 };
+
+export const filterMonth = (searchText, props) => dispatch => {
+
+  axios
+    .post(`${host}/tasks/month`, searchText)
+    .then(res => {
+      console.log(res.data)
+      dispatch({
+        type: FETCH_ALL_MONTHS_AND_TASKS,
+        payload: res.data
+      });
+      props.history.push("/dashboard")
+    })
+    .catch(err =>
+      dispatch({
+        type: FETCH_ALL_MONTHS_AND_TASKS,
+        payload: null
+      })
+    );
+};
+
 
 export const genPDF = (id, props) => dispatch => {
   dispatch(setLoadingPDF());

@@ -103,18 +103,21 @@ router.post(
 
 //Get all tasks by admin user
 
-router.get('/all', (req, res) => {
+router.post('/month', passport.authenticate('jwt', {
+    session: false
+}), (req, res) => {
 
-    Tasks.find().sort({
-            date: -1
+    Month.find({
+            user: req.user.id,
+            name: {
+                $all: req.body.search
+            }
         })
-        .then(tasks => {
-            res.json(tasks)
+        .then(months => {
+            res.json(months)
         }).catch(err => res.status(404).json({
-            notasks: "No tasks found"
+            notasks: "No months found"
         }))
-
-
 })
 
 //Get all tasks of current login user

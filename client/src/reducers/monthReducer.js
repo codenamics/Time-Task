@@ -4,6 +4,7 @@ import {
     DELETE_MONTH,
     LOADING_STATE,
     LOADING_DONE,
+    FILTER_MONTH
 
 } from '../actions/types.js'
 
@@ -39,6 +40,11 @@ export default function (state = initialState, action) {
                 ...state,
                 month: action.payload,
                 loading: false
+            }
+        case FILTER_MONTH:
+            return {
+                ...state,
+                month: state.month.filter(month => month.name === action.payload)
             }
 
         case DELETE_MONTH:

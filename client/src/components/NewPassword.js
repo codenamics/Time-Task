@@ -44,7 +44,6 @@ class NewPassword extends Component {
           <div className="auth__left-form">
             <form className="form" onSubmit={this.onSubmit}>
               <input type="password" onChange={this.handleChange("password")} />
-
               <div className="form__log">
                 <button type="submit" className="form__log-btn">
                   Setup New Password
