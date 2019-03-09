@@ -32,27 +32,30 @@ class AddMonth extends Component {
     return (
       <div className="con-addTask">
         <form className="addTask" onSubmit={this.onSubmitForm}>
-          <label htmlFor=""> Month </label>{" "}
+          <label htmlFor=""> Month </label>
           <input
             type="text"
             onChange={this.onChange}
             name="name"
             value={this.state.name}
             onChange={this.onChange}
-          />{" "}
-          <label htmlFor=""> Year </label>{" "}
+          />
+          <label htmlFor=""> Year </label>
           <input
             type="text"
             onChange={this.onChange}
             name="year"
             value={this.state.year}
             onChange={this.onChange}
-          />{" "}
-          <button type="submit"> Add </button>{" "}
-          <button>
-            <Link to="/dashboard"> Back </Link>{" "}
-          </button>{" "}
-        </form>{" "}
+          />
+          <button type="submit" className="form__log-btn">
+            Add
+          </button>
+        </form>
+
+        <Link className="form__log-btn" to="/dashboard">
+          Back
+        </Link>
       </div>
     );
   }

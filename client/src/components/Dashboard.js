@@ -18,7 +18,8 @@ class Dashboard extends Component {
     this.props.history.push("/login");
   };
   render() {
-    const { month, loading } = this.props.month;
+    const { month, loading, auth } = this.props.month;
+    const { email } = this.props.auth.user;
 
     let dashContent;
     if (month === null || loading) {
@@ -32,70 +33,70 @@ class Dashboard extends Component {
                 <li>
                   <Link to="/" className="sidebar__menu-item">
                     <i className="fas fa-home" />
-                    <span> Dashboard </span>
-                  </Link>
-                </li>
+                    <span> Dashboard </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/health" className="sidebar__menu-item">
                     <i className="fas fa-heart" />
-                    <span> placeholder </span>
-                  </Link>
-                </li>
+                    <span> placeholder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/training" className="sidebar__menu-item">
                     <i className="fas fa-football-ball" />
-                    <span> placeholder </span>
-                  </Link>
-                </li>
+                    <span> placeholder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/notes" className="sidebar__menu-item">
                     <i className="fas fa-utensils" />
-                    <span> placehder </span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                    <span> placehder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
+              </ul>{" "}
+            </div>{" "}
             <div className="nav">
               <div className="nav__logo">
                 <i className="far fa-clock" />
 
                 <span className="nav__logo-line" />
-              </div>
+              </div>{" "}
               <div className="nav__content">
                 <input type="text" className="search" placeholder="Search..." />
                 <ul className="nav__content-items">
                   <li>
                     <a href="http://" className="form__log-btn ">
-                      Report Issue
-                    </a>
-                  </li>
+                      Report Issue{" "}
+                    </a>{" "}
+                  </li>{" "}
                   <li>
-                    <span className="name" />
-                  </li>
+                    <span className="name">{email}</span>
+                  </li>{" "}
                   <li>
                     <button className="logout" onClick={this.logout}>
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      Logout{" "}
+                    </button>{" "}
+                  </li>{" "}
+                </ul>{" "}
+              </div>{" "}
+            </div>{" "}
             <div className="main">
               <div className="main__top">
                 <div className="main__top-left">
-                  <span className="main__top-left--1 check"> Dashboard </span>
+                  <span className="main__top-left--1 check"> Dashboard </span>{" "}
                   <span className="main__top-left--2">
-                    You are in main panel
-                  </span>
-                </div>
+                    You are in main panel{" "}
+                  </span>{" "}
+                </div>{" "}
                 <Link to="/addMonth" className="form__log-btn ">
-                  Add New Month
-                </Link>
-              </div>
+                  Add New Month{" "}
+                </Link>{" "}
+              </div>{" "}
               {month.map(monthItem => {
                 return <MonthRow key={monthItem._id} monthItem={monthItem} />;
-              })}
-            </div>
+              })}{" "}
+            </div>{" "}
           </div>
         );
       } else {
@@ -106,68 +107,68 @@ class Dashboard extends Component {
                 <li>
                   <Link to="/" className="sidebar__menu-item">
                     <i className="fas fa-home" />
-                    <span> Dashboard </span>
-                  </Link>
-                </li>
+                    <span> Dashboard </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/health" className="sidebar__menu-item">
                     <i className="fas fa-heart" />
-                    <span> placeholder </span>
-                  </Link>
-                </li>
+                    <span> placeholder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/training" className="sidebar__menu-item">
                     <i className="fas fa-football-ball" />
-                    <span> placeholder </span>
-                  </Link>
-                </li>
+                    <span> placeholder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
                 <li>
                   <Link to="/notes" className="sidebar__menu-item">
                     <i className="fas fa-utensils" />
-                    <span> placehder </span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                    <span> placehder </span>{" "}
+                  </Link>{" "}
+                </li>{" "}
+              </ul>{" "}
+            </div>{" "}
             <div className="nav">
               <div className="nav__logo">
                 <i className="far fa-clock" />
 
                 <span className="nav__logo-line" />
-              </div>
+              </div>{" "}
               <div className="nav__content">
                 <input type="text" className="search" placeholder="Search..." />
                 <ul className="nav__content-items">
                   <li>
                     <a href="http://" className="form__log-btn ">
-                      Report Issue
-                    </a>
-                  </li>
+                      Report Issue{" "}
+                    </a>{" "}
+                  </li>{" "}
                   <li>
                     <span className="name" />
-                  </li>
+                  </li>{" "}
                   <li>
                     <button className="logout" onClick={this.logout}>
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                      Logout{" "}
+                    </button>{" "}
+                  </li>{" "}
+                </ul>{" "}
+              </div>{" "}
+            </div>{" "}
             <div className="main">
               <div className="main__top">
                 <div className="main__top-left">
-                  <span className="main__top-left--1 check"> Dashboard </span>
+                  <span className="main__top-left--1 check"> Dashboard </span>{" "}
                   <span className="main__top-left--2">
-                    You are in main panel
-                  </span>
-                </div>
+                    You are in main panel{" "}
+                  </span>{" "}
+                </div>{" "}
                 <Link to="/addMonth" className="form__log-btn ">
-                  Add New Month
-                </Link>
-              </div>
-              <p className="no-tasks"> You have no tasks </p>
-            </div>
+                  Add New Month{" "}
+                </Link>{" "}
+              </div>{" "}
+              <p className="no-tasks"> You have no tasks </p>{" "}
+            </div>{" "}
           </div>
         );
       }
@@ -177,7 +178,8 @@ class Dashboard extends Component {
   }
 }
 const mapStateToProps = state => ({
-  month: state.month
+  month: state.month,
+  auth: state.auth
 });
 
 export default connect(
