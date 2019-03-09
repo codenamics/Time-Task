@@ -91,10 +91,10 @@ class Dashboard extends Component {
                 />
                 <ul className="nav__content-items">
                   <li>
-                    <button className="form__log-btn ">Report Issue</button>
+                    <button className="form__log-btn "> Report Issue </button>
                   </li>
                   <li>
-                    <span className="name">{email}</span>
+                    <span className="name"> {email} </span>
                   </li>
                   <li>
                     <button className="logout" onClick={this.logout}>
@@ -117,20 +117,21 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
+                  <option selected value="January">
+                    January
+                  </option>
+                  <option value="February"> February </option>
+                  <option value="March"> March </option>
+                  <option value="April"> April </option>
+                  <option value="May"> May </option>
+                  <option value="June"> June </option>
+                  <option value="July"> July </option>
+                  <option value="August"> August </option>
+                  <option value="September"> September </option>
+                  <option value="October"> October </option>
+                  <option value="November"> November </option>
+                  <option value="December"> December </option>
                 </select>
-
                 <button className="form__log-btn " onClick={this.filterMonth}>
                   Filter
                 </button>
@@ -216,18 +217,21 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
+                  <option selected value="January">
+                    {" "}
+                    January{" "}
+                  </option>
+                  <option value="February"> February </option>
+                  <option value="March"> March </option>
+                  <option value="April"> April </option>
+                  <option value="May"> May </option>
+                  <option value="June"> June </option>
+                  <option value="July"> July </option>
+                  <option value="August"> August </option>
+                  <option value="September"> September </option>
+                  <option value="October"> October </option>
+                  <option value="November"> November </option>
+                  <option value="December"> December </option>
                 </select>
                 <button className="form__log-btn " onClick={this.filterMonth}>
                   Filter
