@@ -10,11 +10,11 @@ import AddMonth from "../components/AddMonth";
 import PrivateRoute from "../components/PrivateRoute";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import Dashboard from "../components/Dashboard";
+
 import AddTask from "../components/AddTask";
 import Landing from "../components/Landing";
 
-import SuccessfulPay from "../components/SuccessfulPay";
+import Success from "../components/Success";
 import Main from "./Main";
 import ResetPassword from "../components/ResetPassword";
 import NewPassword from "../components/NewPassword";
@@ -52,7 +52,7 @@ class App extends Component {
             <PrivateRoute path="/addMonth" component={AddMonth} />
             <PrivateRoute path="/add/:id" component={AddTask} />
             <PrivateRoute path="/:id/:task_id" component={Timer} />
-            <PrivateRoute path="/success" component={SuccessfulPay} />
+            <PrivateRoute path="/success" component={Success} />
           </Switch>
         </Router>
       </Provider>

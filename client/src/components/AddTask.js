@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { addTasks } from "../actions/tasksAction";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 class AddTask extends Component {
   constructor(props) {
     super(props);
@@ -13,10 +15,11 @@ class AddTask extends Component {
   }
   onSubmitForm = e => {
     e.preventDefault();
+    const { title, description, time } = this.state;
     const data = {
-      title: this.state.title,
-      description: this.state.description,
-      time: this.state.time,
+      title,
+      description,
+      time,
       id: this.props.match.params
     };
     this.props.addTasks(data);
@@ -72,19 +75,21 @@ class AddTask extends Component {
             onChange={this.handleChange("description")}
           />
           <button type="submit" className="form__log-btn">
-            {" "}
-            Add{" "}
+            Add
           </button>
         </form>
 
         <Link className="form__log-btn" to="/dashboard">
-          {" "}
-          Back{" "}
+          Back
         </Link>
       </div>
     );
   }
 }
+
+AddTask.propTypes = {
+  addTasks: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

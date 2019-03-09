@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../styles/auth.scss";
 import InputGroup from "../utils/InputGroup";
 import { connect } from "react-redux";
@@ -97,6 +97,13 @@ class Register extends Component {
     );
   }
 }
+
+Register.propTypes = {
+  auth: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  registerUser: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors

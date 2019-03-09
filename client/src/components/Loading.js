@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 
@@ -12,26 +12,25 @@ const Con = styled.div`
   justify-items: center;
   justify-content: center;
 `;
-class Loading extends Component {
-  render() {
-    return (
-      <Con>
-        <div class="lds-css ng-scope">
-          <div class="lds-pacman">
-            <div>
-              <div />
-              <div />
-              <div />
-            </div>
-            <div>
-              <div />
-              <div />
-            </div>
+
+function Loading() {
+  return (
+    <Con>
+      <div class="lds-css ng-scope">
+        <div class="lds-pacman">
+          <div>
+            <div />
+            <div />
+            <div />
+          </div>
+          <div>
+            <div />
+            <div />
           </div>
         </div>
-      </Con>
-    );
-  }
+      </div>
+    </Con>
+  );
 }
 
 export default withRouter(Loading);

@@ -23,22 +23,20 @@ class TaskRow extends Component {
         taskItems = task.tasks.map(taskItem => (
           <div className="table-row" key={task._id}>
             <span className="span-border-left span-border-right">
-              {" "}
-              {taskItem.title}{" "}
-            </span>{" "}
+              {taskItem.title}
+            </span>
             <span> {taskItem.description} </span>
             <span className="span-border-left span-border-right">
-              {" "}
-              {TimeFormat.fromS(taskItem.time, "hh:mm:ss")}{" "}
-            </span>{" "}
+              {TimeFormat.fromS(taskItem.time, "hh:mm:ss")}
+            </span>
             <i
               className="far fa-clock text-center span-border-right"
               onClick={this.onAction.bind(this, task._id, taskItem._id)}
-            />{" "}
+            />
             <i
               className="far fa-trash-alt text-center span-border-right"
               onClick={this.onDeleteClick.bind(this, task._id, taskItem._id)}
-            />{" "}
+            />
           </div>
         ));
       } else {

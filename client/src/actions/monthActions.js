@@ -6,13 +6,11 @@ import {
   ADD_MONTH,
   DELETE_MONTH,
   LOADING_DONE,
-  LOADING_STATE,
-  LOADING_STATE_PDF,
-  LOADING_DONE_PDF
+  LOADING_STATE
 } from "./types";
 
-// const host = "https://vast-everglades-35412.herokuapp.com/api";
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
+// const host = "http://localhost:4000/api";
 
 export const addMonth = (data, props) => dispatch => {
   axios

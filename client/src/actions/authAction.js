@@ -1,10 +1,10 @@
 import axios from "axios";
 import setAuthToken from "../service/setAuthToken";
 import jwt_decode from "jwt-decode";
-import { REGISTER_USER, GET_ERRORS, SET_CURRENT_USER } from "./types";
+import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 
-// const host = "https://vast-everglades-35412.herokuapp.com/api";
-const host = "http://localhost:4000/api";
+const host = "https://vast-everglades-35412.herokuapp.com/api";
+// const host = "http://localhost:4000/api";
 
 export const registerUser = (userData, history) => dispatch => {
   axios

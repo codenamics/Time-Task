@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 import "../styles/auth.scss";
 import InputGroup from "../utils/InputGroup";
@@ -41,15 +40,16 @@ class Login extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+    const { email, password } = this.state;
     let userData = {
-      email: this.state.email,
-      password: this.state.password
+      email,
+      password
     };
     this.props.loginUser(userData);
   };
 
   render() {
-    const { email, password, errors } = this.state;
+    const { email, password } = this.state;
     const { title } = this.props;
     return (
       <div className="auth">
@@ -105,6 +105,14 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired
+};
+
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors

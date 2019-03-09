@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { addMonth } from "../actions/monthActions";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
 class AddMonth extends Component {
   constructor(props) {
     super(props);
@@ -13,9 +15,10 @@ class AddMonth extends Component {
 
   onSubmitForm = e => {
     e.preventDefault();
+    const { name, year } = this.state;
     const data = {
-      name: this.state.name,
-      year: this.state.year
+      name,
+      year
     };
     this.props.addMonth(data, this.props);
     this.setState({
@@ -38,7 +41,6 @@ class AddMonth extends Component {
             onChange={this.onChange}
             name="name"
             value={this.state.name}
-            onChange={this.onChange}
           />
           <label htmlFor=""> Year </label>
           <input
@@ -46,7 +48,6 @@ class AddMonth extends Component {
             onChange={this.onChange}
             name="year"
             value={this.state.year}
-            onChange={this.onChange}
           />
           <button type="submit" className="form__log-btn">
             Add
@@ -60,6 +61,10 @@ class AddMonth extends Component {
     );
   }
 }
+
+AddMonth.propTypes = {
+  addMonth: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

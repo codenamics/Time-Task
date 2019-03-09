@@ -19,8 +19,10 @@ class NewPassword extends Component {
       token: this.props.match.params.token,
       newPassword: this.state.password
     };
+    const host = "https://vast-everglades-35412.herokuapp.com/api";
+    // const host = "http://localhost:4000/api";
     axios
-      .post("http://localhost:4000/api/users/new-password", data)
+      .post(`${host}/users/new-password`, data)
       .then(res => {
         if (res.data.msg === "Success") {
           this.props.history.push("/login");

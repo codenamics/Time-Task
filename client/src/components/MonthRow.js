@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import TaskRow from "./TaskRow";
 import { deleteMonth, genPDF } from "../actions/monthActions";
 import TotalTime from "./TotalTime";
+import PropTypes from "prop-types";
 
 class MonthRow extends Component {
   onDeleteClick = id => {
@@ -70,6 +71,13 @@ class MonthRow extends Component {
     );
   }
 }
+
+MonthRow.propTypes = {
+  month: PropTypes.object.isRequired,
+  monthItem: PropTypes.object.isRequired,
+  deleteMonth: PropTypes.func.isRequired,
+  genPDF: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   month: state.month

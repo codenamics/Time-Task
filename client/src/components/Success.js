@@ -8,7 +8,7 @@ const Con = styled.div`
   height: 100vh;
   padding-top: 150px;
 `;
-class SuccessfulPay extends Component {
+class Success extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.history.push("/dashboard");
@@ -35,10 +35,10 @@ class SuccessfulPay extends Component {
             fill="none"
             d="M14.1 27.2l7.1 7.2 16.7-16.8"
           />
-        </svg>{" "}
+        </svg>
       </Con>
     );
   }
 }
 
-export default withRouter(SuccessfulPay);
+export default withRouter(Success);
