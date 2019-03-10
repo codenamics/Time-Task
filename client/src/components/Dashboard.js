@@ -117,10 +117,10 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option disabled>Filter by month</option>
-                  <option selected value="January">
-                    January
+                  <option selected disabled>
+                    Filter by month
                   </option>
+                  <option value="January">January</option>
                   <option value="February"> February </option>
                   <option value="March"> March </option>
                   <option value="April"> April </option>
@@ -218,9 +218,10 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option selected value="January">
-                    January{" "}
+                  <option selected disabled>
+                    Filter by month
                   </option>
+                  <option value="January">January</option>
                   <option value="February"> February </option>
                   <option value="March"> March </option>
                   <option value="April"> April </option>
