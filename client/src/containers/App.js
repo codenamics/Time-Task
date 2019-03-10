@@ -5,17 +5,15 @@ import store from "../store";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../service/setAuthToken";
 import { setCurrentUser, logoutUser } from "../actions/authAction";
+import Main from "./Main";
 import Timer from "../components/Timer";
 import AddMonth from "../components/AddMonth";
 import PrivateRoute from "../components/PrivateRoute";
 import Login from "../components/Login";
 import Register from "../components/Register";
-
 import AddTask from "../components/AddTask";
 import Landing from "../components/Landing";
-
 import Success from "../components/Success";
-import Main from "./Main";
 import ResetPassword from "../components/ResetPassword";
 import NewPassword from "../components/NewPassword";
 
