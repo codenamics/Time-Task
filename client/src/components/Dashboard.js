@@ -117,7 +117,7 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option selected disabled>
+                  <option selected="true" disabled>
                     Filter by month
                   </option>
                   <option value="January">January</option>
@@ -218,7 +218,7 @@ class Dashboard extends Component {
                   onChange={this.onChange}
                   value={this.state.search}
                 >
-                  <option selected disabled>
+                  <option selected="true" disabled>
                     Filter by month
                   </option>
                   <option value="January">January</option>
