@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const users = require("./routes/api/users");
 const tasks = require("./routes/api/tasks");
+const todo = require("./routes/api/todo");
 const passport = require("passport");
 const cors = require("cors");
 const path = require("path");
@@ -33,6 +34,7 @@ require("./config/passport")(passport);
 
 app.use("/api/users", users);
 app.use("/api/tasks", tasks);
+app.use("/api/todo", todo);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
