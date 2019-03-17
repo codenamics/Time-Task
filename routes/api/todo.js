@@ -82,6 +82,27 @@ router.post(
   }
 );
 
+router.get(
+  "/:id",
+  passport.authenticate("jwt", {
+    session: false
+  }),
+  (req, res) => {
+    Todo.findOne({
+      user: req.user.id,
+      _id: req.params.id
+    })
+      .then(todo => {
+        res.json(todo);
+      })
+      .catch(err =>
+        res.status(404).json({
+          notask: "There is not todo with that ID to be deleted"
+        })
+      );
+  }
+);
+
 //Delete user todo
 
 router.delete(
@@ -104,28 +125,6 @@ router.delete(
       .catch(err =>
         res.status(404).json({
           notask: "There is not todo with that ID to be deleted"
-        })
-      );
-  }
-);
-
-//Get month by ID
-router.get(
-  "/:id",
-  passport.authenticate("jwt", {
-    session: false
-  }),
-  (req, res) => {
-    Todo.findOne({
-      user: req.user.id,
-      _id: req.params.id
-    })
-      .then(todo => {
-        res.json(todo);
-      })
-      .catch(err =>
-        res.status(404).json({
-          notask: "There is not task with that ID to be deleted"
         })
       );
   }
