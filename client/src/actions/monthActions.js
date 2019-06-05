@@ -15,7 +15,7 @@ import {
 // const host = "https://vast-everglades-35412.herokuapp.com/api";
 const host = "http://localhost:4000/api";
 
-export const addMonth = (data, props) => dispatch => {
+export const addMonth = (data, history) => dispatch => {
   axios
     .post(`${host}/tasks`, data)
     .then(res => {
@@ -23,7 +23,7 @@ export const addMonth = (data, props) => dispatch => {
         type: ADD_MONTH,
         payload: res.data
       });
-      props.history.push("/dashboard");
+      history.push("/dashboard");
     })
     .catch(err =>
       dispatch({
