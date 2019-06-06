@@ -69,7 +69,7 @@ export const fetchAllMonthAndTasks = () => dispatch => {
     );
 };
 
-export const filterMonth = (searchText, props) => dispatch => {
+export const filterMonth = (searchText, history) => dispatch => {
 
   axios
     .post(`${host}/tasks/month`, searchText)
@@ -79,7 +79,7 @@ export const filterMonth = (searchText, props) => dispatch => {
         type: FETCH_ALL_MONTHS_AND_TASKS,
         payload: res.data
       });
-      props.history.push("/dashboard")
+      history.push("/dashboard")
     })
     .catch(err =>
       dispatch({
