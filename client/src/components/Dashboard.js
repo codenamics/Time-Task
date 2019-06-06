@@ -1,58 +1,33 @@
-import React, {
-  useState
-} from "react";
-import {
-  connect
-} from "react-redux";
+import React, { useState, useEffect, Fragment } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import {
-  fetchAllMonthAndTasks
-} from "../actions/monthActions";
-import {
-  withRouter
-} from "react-router-dom";
+import { fetchAllMonthAndTasks } from "../actions/monthActions";
+import { withRouter } from "react-router-dom";
 import Loading from "./Loading";
 import GridContainer from "./GridContainer";
 
-class Dashboard extends Component {
-  componentDidMount() {
-    this.props.fetchAllMonthAndTasks();
-  }
+const Dashboard = ({
+  fetchAllMonthAndTasks,
+  month: { month, loading },
+  auth: { user }
+}) => {
+  useEffect(() => {
+    fetchAllMonthAndTasks();
+  }, []);
 
-  render() {
-    const {
-      month,
-      loading
-    } = this.props.month;
-    const {
-      email
-    } = this.props.auth.user;
-
-    let dashContent;
-    if (month === null || loading) {
-      dashContent = < Loading / > ;
+  let dashContent;
+  if (month === null || loading) {
+    dashContent = <Loading />;
+  } else {
+    if (month.length > 0) {
+      dashContent = <GridContainer email={user.email} month={month} />;
     } else {
-      if (month.length > 0) {
-        dashContent = < GridContainer email = {
-          email
-        }
-        month = {
-          month
-        }
-        />;
-      } else {
-        dashContent = < GridContainer email = {
-          email
-        }
-        />;
-      }
+      dashContent = <GridContainer email={user.email} />;
     }
-
-    return <React.Fragment > {
-      dashContent
-    } < /React.Fragment>;
   }
-}
+
+  return <Fragment> {dashContent} </Fragment>;
+};
 
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
@@ -66,7 +41,8 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps, {
+  mapStateToProps,
+  {
     fetchAllMonthAndTasks
   }
 )(withRouter(Dashboard));
