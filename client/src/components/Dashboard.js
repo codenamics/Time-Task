@@ -1,8 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, {
+  useState
+} from "react";
+import {
+  connect
+} from "react-redux";
 import PropTypes from "prop-types";
-import { fetchAllMonthAndTasks } from "../actions/monthActions";
-import { withRouter } from "react-router-dom";
+import {
+  fetchAllMonthAndTasks
+} from "../actions/monthActions";
+import {
+  withRouter
+} from "react-router-dom";
 import Loading from "./Loading";
 import GridContainer from "./GridContainer";
 
@@ -12,21 +20,37 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { month, loading } = this.props.month;
-    const { email } = this.props.auth.user;
+    const {
+      month,
+      loading
+    } = this.props.month;
+    const {
+      email
+    } = this.props.auth.user;
 
     let dashContent;
     if (month === null || loading) {
-      dashContent = <Loading />;
+      dashContent = < Loading / > ;
     } else {
       if (month.length > 0) {
-        dashContent = <GridContainer email={email} month={month} />;
+        dashContent = < GridContainer email = {
+          email
+        }
+        month = {
+          month
+        }
+        />;
       } else {
-        dashContent = <GridContainer email={email} />;
+        dashContent = < GridContainer email = {
+          email
+        }
+        />;
       }
     }
 
-    return <React.Fragment> {dashContent} </React.Fragment>;
+    return <React.Fragment > {
+      dashContent
+    } < /React.Fragment>;
   }
 }
 
@@ -42,8 +66,7 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps,
-  {
+  mapStateToProps, {
     fetchAllMonthAndTasks
   }
 )(withRouter(Dashboard));

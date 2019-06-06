@@ -41,8 +41,6 @@ class TotalTime extends Component {
   }
 }
 
-TotalTime.propTypes = {
-  time: PropTypes.array.isRequired
-};
+
 
 export default TotalTime;

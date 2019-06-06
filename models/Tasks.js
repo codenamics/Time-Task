@@ -24,7 +24,8 @@ const MonthSchema = new Schema({
             // required: true
         },
         time: {
-            type: Number
+            type: Number,
+            default: 0
         }
     }],
 
