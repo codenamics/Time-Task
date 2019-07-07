@@ -32,7 +32,7 @@ class MonthRow extends Component {
     } else {
       btn = (
         <button
-          className="form__log-btn green-btn"
+          className="form__log-btn blue-btn"
           onClick={this.onGen.bind(this, monthItem._id)}
         >
           PDF
@@ -50,6 +50,7 @@ class MonthRow extends Component {
             </span>
             <span className="main__top-left--2"> Check your tasks </span>
           </div>
+          {btn}
           <button
             className="form__log-btn"
             onClick={this.onAction.bind(this, monthItem._id)}
@@ -57,7 +58,7 @@ class MonthRow extends Component {
             Add new Task
           </button>
 
-          {btn}
+
           <button
             className="form__log-btn form__log-btn-red"
             onClick={this.onDeleteClick.bind(this, monthItem._id)}

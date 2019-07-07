@@ -126,7 +126,7 @@ const GridContainer = ({
           <button className="form__log-btn " onClick={filterMonthAction}>
             Filter
           </button>
-          <button className="form__log-btn " onClick={clearFilter}>
+          <button className="form__log-btn form__log-btn-red" onClick={clearFilter}>
             Clear Filter
           </button>
           <Link to="/addMonth" className="form__log-btn ">

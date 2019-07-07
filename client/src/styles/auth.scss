@@ -4,7 +4,7 @@ h2 {
 }
 
 .check {
-    color: #55a8fd !important;
+    color: #0071fe !important;
 }
 
 .auth {
@@ -118,20 +118,17 @@ h2 {
         &-btn {
             font-weight: 600;
             font-size: 14px;
-
             padding: 12px 10px;
             min-width: 150px;
             text-decoration: none;
             text-align: center;
-            border: 2px solid #55a8fd;
-            background: transparent;
-            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-            border-radius: 25px;
-
+            border: none;
+            background: #00e89e;
+            border-radius: 4px;
             cursor: pointer;
+            -webkit-transition: 0.5s all;
             transition: 0.5s all;
-
-            color: #55a8fd;
+            color: #fff;
 
             &:hover {
                 background: #55a8fd;
@@ -139,8 +136,9 @@ h2 {
             }
 
             &-red {
-                border: 2px solid red;
-                color: red;
+
+                color: white;
+                background: #f74a4a;
 
                 &:hover {
                     background: red;
@@ -151,9 +149,10 @@ h2 {
     }
 }
 
-.green-btn {
-    border: 2px solid #43ce6d;
-    color: #43ce6d;
+.blue-btn {
+
+    color: #fff;
+    background: #0071fe;
 
     &:hover {
         background: #43ce6d;
@@ -184,4 +183,9 @@ h2 {
 
 .cant {
     color: #9a96a7 !important;
+}
+
+.nav__logo i {
+    color: #fff !important;
+    font-size: 52px !important;
 }

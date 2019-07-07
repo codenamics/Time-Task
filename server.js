@@ -25,7 +25,10 @@ app.use(
 );
 
 mongoose
-  .connect(process.env.mongoURI)
+  .connect(process.env.mongoURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 

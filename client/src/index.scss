@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f8f8f8;
+  background: #edf3f8;
 }
 
 a {
@@ -259,7 +259,7 @@ code {
 }
 
 .nav {
-  background-color: #fff;
+  background-color: #edf3f8;
   grid-column: 1 / -1;
   grid-row: nav-start / nav-end;
   z-index: 1000;
@@ -267,6 +267,7 @@ code {
   align-items: center;
 
   &__logo {
+    background: #0071fe;
     width: 120px;
     height: 100%;
     display: flex;
@@ -275,16 +276,16 @@ code {
     position: relative;
     font-size: 55px;
 
-    &-line {
-      border-width: 0.5px;
-      border-color: rgb(242, 242, 242);
-      border-style: solid;
-      position: absolute;
-      top: 100px;
-      right: 0;
-      width: 120px;
-      z-index: 2;
-    }
+    // &-line {
+    //   border-width: 0.5px;
+    //   border-color: rgb(242, 242, 242);
+    //   border-style: solid;
+    //   position: absolute;
+    //   top: 100px;
+    //   right: 0;
+    //   width: 120px;
+    //   z-index: 2;
+    // }
   }
 
   &__content {
@@ -337,9 +338,10 @@ code {
 }
 
 .sidebar {
-  background-color: #fff;
+  background-color: #0071fe;
   grid-column: sidebar-start / sidebar-end;
   position: relative;
+
 
   a {
     text-decoration: none;
@@ -365,7 +367,7 @@ code {
       transition: 0.3s all;
       height: 86px;
       font-size: 14px;
-      color: black;
+      color: #fff;
 
       &:hover {
         border-right: 4px solid #55a8fd;
@@ -380,7 +382,7 @@ code {
 .fa-heart,
 .fa-utensils {
   font-size: 35px;
-  background: #55a8fd;
+  background: #fff;
 
 
 

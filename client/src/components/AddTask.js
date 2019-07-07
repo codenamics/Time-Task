@@ -21,7 +21,7 @@ const AddTask = ({ addTasks }) => {
     addTasks(data);
     setTitle('')
     setDescription('')
-    history.push('/dashboard')
+    window.location.href = "/dashboard";
   };
 
   return (
