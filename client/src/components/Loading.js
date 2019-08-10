@@ -13,7 +13,7 @@ const Con = styled.div`
   justify-content: center;
 `;
 
-function Loading() {
+const Loading = () => {
   return (
     <Con>
       <div class="lds-css ng-scope">

@@ -9,6 +9,12 @@ const todo = require("./routes/api/todo");
 const passport = require("passport");
 const cors = require("cors");
 const path = require("path");
+const morgan = require('morgan')
+const fs = require('fs')
+
+const accessLog = fs.createWriteStream(path.join(__dirname, 'access.log'), {
+  flags: 'a'
+})
 
 app.use(bodyParser.json());
 app.use(
@@ -16,7 +22,9 @@ app.use(
     extended: false
   })
 );
-
+app.use(morgan('combined', {
+  stream: accessLog
+}))
 app.use(
   cors({
     origin: "*",

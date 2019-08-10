@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from "../store";
@@ -28,34 +28,32 @@ if (localStorage.jwtToken) {
   }
 }
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Landing} />
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Landing} />
 
-            <Route exact path="/reset" component={ResetPassword} />
-            <Route exact path="/reset/:token" component={NewPassword} />
-            <Route
-              path="/register"
-              render={() => <Register authType="register" title="Register" />}
-            />
-            <Route
-              path="/login"
-              render={() => <Login authType="login" title="Login" />}
-            />
-            <PrivateRoute path="/dashboard" component={Main} />
-            <PrivateRoute path="/addMonth" component={AddMonth} />
-            <PrivateRoute path="/add/:id" component={AddTask} />
-            <PrivateRoute path="/:id/:task_id" component={Timer} />
-            <PrivateRoute path="/success" component={Success} />
-          </Switch>
-        </Router>
-      </Provider>
-    );
-  }
+          <Route exact path="/reset" component={ResetPassword} />
+          <Route exact path="/reset/:token" component={NewPassword} />
+          <Route
+            path="/register"
+            render={() => <Register authType="register" title="Register" />}
+          />
+          <Route
+            path="/login"
+            render={() => <Login authType="login" title="Login" />}
+          />
+          <PrivateRoute path="/dashboard" component={Main} />
+          <PrivateRoute path="/addMonth" component={AddMonth} />
+          <PrivateRoute path="/add/:id" component={AddTask} />
+          <PrivateRoute path="/:id/:task_id" component={Timer} />
+          <PrivateRoute path="/success" component={Success} />
+        </Switch>
+      </Router>
+    </Provider>
+  )
 }
 
 export default App;
