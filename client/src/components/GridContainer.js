@@ -63,7 +63,7 @@ const GridContainer = ({
           <li>
             <Link to="/health" className="sidebar__menu-item">
               <i className="fas fa-heart" />
-              <span> placeholder </span>
+              <span> placeholder</span>
             </Link>
           </li>
           <li>
@@ -129,7 +129,7 @@ const GridContainer = ({
           <button className="form__log-btn form__log-btn-red" onClick={clearFilter}>
             Clear Filter
           </button>
-          <Link to="/addMonth" className="form__log-btn ">
+          <Link to="/addMonth" className="form__log-btn green">
             Add New Month
           </Link>
         </div>

@@ -22,7 +22,7 @@ class MonthRow extends Component {
     if (month.loading) {
       btn = (
         <button
-          className="form__log-btn green-btn"
+          className="form__log-btn"
           onClick={this.onGen.bind(this, monthItem._id)}
           disabled="true"
         >
@@ -32,7 +32,7 @@ class MonthRow extends Component {
     } else {
       btn = (
         <button
-          className="form__log-btn blue-btn"
+          className="form__log-btn"
           onClick={this.onGen.bind(this, monthItem._id)}
         >
           PDF
@@ -52,7 +52,7 @@ class MonthRow extends Component {
           </div>
           {btn}
           <button
-            className="form__log-btn"
+            className="form__log-btn green"
             onClick={this.onAction.bind(this, monthItem._id)}
           >
             Add new Task

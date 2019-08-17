@@ -123,12 +123,12 @@ h2 {
             text-decoration: none;
             text-align: center;
             border: none;
-            background: #00e89e;
+            background: #eaf2f9;
             border-radius: 4px;
             cursor: pointer;
             -webkit-transition: 0.5s all;
             transition: 0.5s all;
-            color: #fff;
+            color: black;
 
             &:hover {
                 background: #55a8fd;
@@ -138,7 +138,7 @@ h2 {
             &-red {
 
                 color: white;
-                background: #f74a4a;
+                background: #f56464;
 
                 &:hover {
                     background: red;
@@ -151,8 +151,8 @@ h2 {
 
 .blue-btn {
 
-    color: #fff;
-    background: #0071fe;
+    color: black;
+    background: #eaf2f9;
 
     &:hover {
         background: #43ce6d;
@@ -180,6 +180,8 @@ h2 {
 
 
 }
+
+
 
 .cant {
     color: #9a96a7 !important;

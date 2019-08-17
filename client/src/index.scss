@@ -6,7 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #edf3f8;
+  background: #fafafa;
 }
 
 a {
@@ -259,7 +259,7 @@ code {
 }
 
 .nav {
-  background-color: #edf3f8;
+  background-color: #fafafa;
   grid-column: 1 / -1;
   grid-row: nav-start / nav-end;
   z-index: 1000;
