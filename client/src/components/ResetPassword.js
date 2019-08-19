@@ -19,11 +19,11 @@ export default class ResetPassword extends Component {
     let data = {
       email: this.state.email
     };
-    // const host = "https://vast-everglades-35412.herokuapp.com/api";
-    const host = "http://localhost:4000/api";
+    const host = "https://vast-everglades-35412.herokuapp.com/api";
+    // const host = "http://localhost:4000/api";
     axios
       .post(`${host}/users/reset`, data)
-      .then(() => {})
+      .then(() => { })
       .catch(err => {
         console.log(err);
       });
