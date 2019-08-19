@@ -99,7 +99,9 @@ router.post('/login', (req, res) => {
                         id: user.id,
                         email: user.email
                     }
-                    jwt.sign(payload, process.env.SECRET_OR_KEY, (err, token) => {
+                    jwt.sign(payload, process.env.SECRET_OR_KEY, {
+                        expiresIn: 86400
+                    }, (err, token) => {
                         res.json({
                             success: true,
                             token: 'Bearer ' + token

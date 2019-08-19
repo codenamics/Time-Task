@@ -72,7 +72,6 @@ h2 {
                 text-align: left;
                 font-weight: 600;
 
-
                 @media (max-width: 1855px) {
                     font-size: 75px;
                 }
@@ -91,10 +90,7 @@ h2 {
                     }
                 }
             }
-
-
         }
-
     }
 }
 
@@ -113,8 +109,6 @@ h2 {
         align-content: center;
         align-items: center;
 
-
-
         &-btn {
             font-weight: 600;
             font-size: 14px;
@@ -132,17 +126,16 @@ h2 {
 
             &:hover {
                 background: #55a8fd;
-                color: white
+                color: white;
             }
 
             &-red {
-
                 color: white;
                 background: #f56464;
 
                 &:hover {
                     background: red;
-                    color: white
+                    color: white;
                 }
             }
         }
@@ -150,13 +143,12 @@ h2 {
 }
 
 .blue-btn {
-
     color: black;
     background: #eaf2f9;
 
     &:hover {
         background: #43ce6d;
-        color: white
+        color: white;
     }
 }
 
@@ -175,13 +167,8 @@ h2 {
         width: 370px;
         display: flex;
         flex-direction: column;
-
     }
-
-
 }
-
-
 
 .cant {
     color: #9a96a7 !important;
