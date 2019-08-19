@@ -11,15 +11,20 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 const nodemailer = require('nodemailer');
-const sendgridTransport = require('nodemailer-sendgrid-transport');
 
-const transporter = nodemailer.createTransport(
-    sendgridTransport({
-        auth: {
-            api_key: process.env.API_KEY
-        }
-    })
-);
+
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP,
+    port: process.SMTP_PORT,
+    secure: true, // true for 465, false for other ports
+    auth: {
+        user: process.env.AUTH_USER, // generated ethereal user
+        pass: process.env.AUTH_PASS // generated ethereal password
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 
 router.post('/register', (req, res) => {
     const {
