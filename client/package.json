@@ -7,7 +7,7 @@
     "file-saver": "^2.0.0",
     "hh-mm-ss": "^1.2.0",
     "jwt-decode": "^2.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-particles-js": "^2.4.2",
