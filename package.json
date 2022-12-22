@@ -21,7 +21,7 @@
     "express": "^4.16.4",
     "hh-mm-ss": "^1.2.0",
     "html-pdf": "^2.2.0",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.24.0",
     "mongoose": "^5.4.10",
     "morgan": "^1.9.1",
